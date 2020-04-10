@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="ObjectPickup.cs" t="Include" />
         <e p="ObjectPlacement.cs" t="Include" />
+        <e p="PickupOverride.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Movement.cs" t="Include" />
         </e>

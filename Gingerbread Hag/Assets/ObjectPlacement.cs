@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.UIElements;
 
+[RequireComponent(typeof(Grid))]
 public class ObjectPlacement : MonoBehaviour
 {
     //These variables generate a singleton for me
@@ -15,9 +17,17 @@ public class ObjectPlacement : MonoBehaviour
         {
             if (Instance == null)
             {
-                GameObject inst = new GameObject();
-                inst.AddComponent(typeof(ObjectPlacement));
-                Instance = inst.GetComponent<ObjectPlacement>();
+                GameObject obj = GameObject.FindGameObjectWithTag("Grid");
+                if (obj)
+                {
+                    Instance = obj.GetComponent<ObjectPlacement>();
+                }
+                else
+                {
+                    GameObject inst = new GameObject();
+                    inst.AddComponent(typeof(ObjectPlacement));
+                    Instance = inst.GetComponent<ObjectPlacement>();
+                }
             }
 
             return Instance;
@@ -27,23 +37,27 @@ public class ObjectPlacement : MonoBehaviour
 
     [SerializeField] private Vector2Int size;
     private Dictionary<Vector2, GameObject> objects;
+    private Dictionary<Vector2, PickupOverride> overrides;
     private Grid grid;
 
     private GameObject player;
+
+    [Header("Gizmos")] [SerializeField] private int dist;
     
     // Start is called before the first frame update
     void Start()
     {
         //Singleton code
-        if (Instance != null)
+        if (Instance != this)
         {
             Destroy(this.gameObject);
         }
         else
         {
-            Instance = gameObject.GetComponent<ObjectPlacement>();
+            Instance = GetComponent<ObjectPlacement>();
         }
         objects = new Dictionary<Vector2, GameObject>();
+        overrides = new Dictionary<Vector2, PickupOverride>();
         player = GameObject.FindGameObjectWithTag("Player");
         grid = GetComponent<Grid>();
     }
@@ -69,6 +83,7 @@ public class ObjectPlacement : MonoBehaviour
         return gameobj;
     }
 
+    //Call this to attempt to pickup an object at a position
     public GameObject PickUp(Vector3 position)
     {
         Vector2 location = gridPosition(position);
@@ -81,6 +96,8 @@ public class ObjectPlacement : MonoBehaviour
         return toReturn;
     }
 
+    //Call this to attempt to drop your object at position
+    //Returns false if the drop failed
     public bool Drop(GameObject obj, Vector3 position)
     {
         if (CanPlace(position))
@@ -93,21 +110,52 @@ public class ObjectPlacement : MonoBehaviour
         return false;
     }
 
-    public bool CanPlace(Vector3 position)
+    private bool CanPlace(Vector3 position)
     {
         return (!OnFloor(position));
     }
 
-    public void Place(GameObject obj, Vector3 position)
+    
+    private void Place(GameObject obj, Vector3 position)
     {
         Vector3 location = gridPosition(position);
         objects.Add(location, obj);
-        obj.transform.position = GetCellLocation(location); //new Vector3(location.x, 0, location.y);
+        obj.transform.position = GetFinalLocation(location); //new Vector3(location.x, 0, location.y);
     }
-
+    
+    //Return real world location of grid coord
     public Vector3 GetCellLocation(Vector2 location)
     {
         return grid.GetCellCenterWorld(new Vector3Int((int) location.x, 0, (int) location.y));
+    }
+
+    //Return the location of grid coord, factoring in overrides
+    public Vector3 GetFinalLocation(Vector2 location)
+    {
+        PickupOverride over;
+        if (overrides.TryGetValue(location, out over))
+        {
+            print("Found an override!");
+            return over.getLocation();
+        }
+        else
+        {
+            return GetCellLocation(location);
+        }
+    }
+
+    public bool RegisterOverride(GameObject obj)
+    {
+        if (grid)
+        {
+            PickupOverride over = obj.GetComponent<PickupOverride>();
+            Vector2 location = gridPosition(obj.transform.position);
+            overrides.Add(location, over);
+            print("Override registered! " + location);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnDrawGizmos()
@@ -127,6 +175,31 @@ public class ObjectPlacement : MonoBehaviour
                 Vector2 spot = kvp.Key;
                 Gizmos.DrawWireCube(GetCellLocation(spot), grid.cellSize);
             }
+        }
+
+        if (overrides != null)
+        {
+            foreach (KeyValuePair<Vector2, PickupOverride> kvp in overrides)
+            {
+                Gizmos.color = Color.magenta;
+                Vector2 spot = kvp.Key;
+                Gizmos.DrawWireCube(GetCellLocation(spot), grid.cellSize);
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawLine(GetCellLocation(spot), kvp.Value.getLocation());
+            }
+        }
+        
+        Gizmos.color = Color.green;
+        Grid g = GetComponent<Grid>();
+        for (float i = 0; i <= dist; i += g.cellSize.x)
+        {
+            Gizmos.DrawLine(new Vector3(i, 0, -dist), new Vector3(i, 0, dist));
+            Gizmos.DrawLine(new Vector3(-i, 0, -dist), new Vector3(-i, 0, dist));
+        }
+        for (float j = 0; j <= dist; j += g.cellSize.z)
+        {
+            Gizmos.DrawLine(new Vector3(-dist, 0, j), new Vector3(dist, 0, j));
+            Gizmos.DrawLine(new Vector3(-dist, 0, -j), new Vector3(dist, 0, -j));
         }
     }
 }

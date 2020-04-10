@@ -14,12 +14,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/PickupOverride.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPlacement.cs" />
       </list>
     </option>
@@ -72,6 +74,8 @@
       <workItem from="1586184075611" duration="3156000" />
       <workItem from="1586476641017" duration="3485000" />
       <workItem from="1586480950217" duration="2372000" />
+      <workItem from="1586488515793" duration="2601000" />
+      <workItem from="1586491515628" duration="8000" />
     </task>
     <servers />
   </component>
