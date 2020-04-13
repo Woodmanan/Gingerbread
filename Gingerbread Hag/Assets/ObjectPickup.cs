@@ -44,5 +44,9 @@ public class ObjectPickup : MonoBehaviour
         }
     }
     
+    public KeyCode GetKey()
+    {
+        return pickupKey;
+    }
     
 }
