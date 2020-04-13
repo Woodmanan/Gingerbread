@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Grid
+  - Candy
+  - RandomLocation
+  - Child
+  - Hunter
+  - WitchStore
   layers:
   - Default
   - TransparentFX
