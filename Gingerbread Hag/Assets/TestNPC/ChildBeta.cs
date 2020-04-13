@@ -16,6 +16,8 @@ public class ChildBeta : MonoBehaviour
     private int timeToEatCandy = 6;
     private double eatingCandyTimer;
 
+    private bool isHeld;
+    private bool isMoving = true;
     
     void Start()
     {
@@ -62,17 +64,33 @@ public class ChildBeta : MonoBehaviour
         {
             eatingCandyTimer += Time.deltaTime;
 
+            GetComponent<NavMeshAgent>().isStopped = true;
+            GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+
             if (eatingCandyTimer > timeToEatCandy)
             {
+
                 eatingCandyTimer = 0;
                 Destroy(currentGoal.gameObject);
+
+                GetComponent<NavMeshAgent>().isStopped = false;
+
                 hasCandy = false;
+
+
                 toRandomDirection();
+
             }
 
 
         }
-        else
+        else if (currentGoal == null)
+        {
+            toRandomDirection();
+
+
+        }
+        else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 1)
         {
 
             toRandomDirection();
@@ -98,19 +116,17 @@ public class ChildBeta : MonoBehaviour
 
     private void toRandomDirection()
     {
-        if (Vector3.Distance(transform.position, currentGoal.position) < 1)
+        randNum += 1;
+
+        if (randNum >= randomLocations.Length)
         {
-            randNum += 1;
 
-            if (randNum >= randomLocations.Length)
-            {
+            randNum = 0;
 
-                randNum = 0;
-
-            }
-            currentGoal = randomLocations[randNum].transform;
-            SetDestination();
         }
+        currentGoal = randomLocations[randNum].transform;
+        SetDestination();
+        
 
 
 
