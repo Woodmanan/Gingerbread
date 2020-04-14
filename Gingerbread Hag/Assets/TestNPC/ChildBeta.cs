@@ -174,7 +174,7 @@ public class ChildBeta : MonoBehaviour
                 if (Input.GetKeyDown(pickUpKey))
                 {
 
-                    if (theWitch.GetComponent<ObjectPickup>().holdingChild)
+                    if (theWitch.GetComponent<ObjectPickup>().GetHoldingChild())
                     {
 
                     }
@@ -183,7 +183,7 @@ public class ChildBeta : MonoBehaviour
                         transform.parent = theWitch.transform;
                         transform.position = theWitch.transform.position + new Vector3(0, 2, 0);
                         Destroy(transform.GetComponent<NavMeshAgent>());
-                        theWitch.GetComponent<ObjectPickup>().holdingChild = true;
+                        theWitch.GetComponent<ObjectPickup>().SetHoldingChild(true);
                         Destroy(currentGoal.gameObject);
                         isHeld = true;
                     }
@@ -225,7 +225,7 @@ public class ChildBeta : MonoBehaviour
         {
 
             Destroy(transform.gameObject);
-            theWitch.GetComponent<ObjectPickup>().holdingChild = false;
+            theWitch.GetComponent<ObjectPickup>().SetHoldingChild(false);
 
 
 

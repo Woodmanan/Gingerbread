@@ -51,5 +51,14 @@ public class ObjectPickup : MonoBehaviour
     {
         return pickupKey;
     }
+
+    public void SetHoldingChild(bool holding)
+    {
+        holdingChild = holding;
+    }
     
+    public bool GetHoldingChild()
+    {
+        return holdingChild;
+    }
 }
