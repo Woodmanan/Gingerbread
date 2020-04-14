@@ -20,28 +20,39 @@ public class ObjectPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(pickupKey) && gridLogicActive)
+        if (holdingChild) //the "child" is a child of the player transform
         {
-            if (held)
+            if (Input.GetKeyDown(pickupKey));
             {
-                print("Location: " + transform.position);
-                //Attempt drop
-                if (ObjectPlacement.instance.Drop(held, transform.position))
+
+            }
+
+        }
+        else
+        {
+            if (Input.GetKeyDown(pickupKey) && gridLogicActive)
+            {
+                if (held)
                 {
-                    held.SetActive(true);
-                    held = null;
+                    print("Location: " + transform.position);
+                    //Attempt drop
+                    if (ObjectPlacement.instance.Drop(held, transform.position))
+                    {
+                        held.SetActive(true);
+                        held = null;
+                    }
+                    else
+                    {
+                        print("Hwat the fuck.");
+                    }
                 }
                 else
                 {
-                    print("Hwat the fuck.");
-                }
-            }
-            else
-            {
-                held = ObjectPlacement.instance.PickUp(transform.position);
-                if (held)
-                {
-                    held.SetActive(false);
+                    held = ObjectPlacement.instance.PickUp(transform.position);
+                    if (held)
+                    {
+                        held.SetActive(false);
+                    }
                 }
             }
         }
