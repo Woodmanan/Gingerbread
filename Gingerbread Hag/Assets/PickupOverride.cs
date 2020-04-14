@@ -2,10 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickupOverride : MonoBehaviour
 {
     [SerializeField] private Vector3 offset;
+
+    [SerializeField] private ObjectEvent OnPickup;
+
+    [SerializeField] private UnityEvent OnDrop;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,17 @@ public class PickupOverride : MonoBehaviour
     {
         return transform.position + offset;
     }
+
+    public void PassObject(GameObject obj)
+    {
+        OnPickup.Invoke(obj);
+    }
+
+    public void GiveObject()
+    {
+        OnDrop.Invoke();
+    }
+    
 
     private void OnDrawGizmos()
     {

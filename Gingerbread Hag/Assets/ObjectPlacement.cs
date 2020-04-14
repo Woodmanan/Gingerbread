@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using System.Xml;
 using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 [RequireComponent(typeof(Grid))]
 public class ObjectPlacement : MonoBehaviour
@@ -35,12 +39,16 @@ public class ObjectPlacement : MonoBehaviour
         set => Instance = value;
     }
 
-    [SerializeField] private Vector2Int size;
+    [SerializeField] private float indicatorHeight;
+    [SerializeField] private float dropHeight;
     private Dictionary<Vector2, GameObject> objects;
     private Dictionary<Vector2, PickupOverride> overrides;
     private Grid grid;
 
     private GameObject player;
+
+    private GameObject signal;
+    private Vector3 signaledPosition;
 
     [Header("Gizmos")] [SerializeField] private int dist;
     
@@ -60,6 +68,11 @@ public class ObjectPlacement : MonoBehaviour
         overrides = new Dictionary<Vector2, PickupOverride>();
         player = GameObject.FindGameObjectWithTag("Player");
         grid = GetComponent<Grid>();
+        signal = transform.GetChild(0).gameObject;
+        if (!signal)
+        {
+            Debug.LogError("Object grid must have signal object childed!");
+        }
     }
 
     // Update is called once per frame
@@ -92,6 +105,11 @@ public class ObjectPlacement : MonoBehaviour
         {
             print("Pickup found an object!");
             objects.Remove(location);
+            PickupOverride over;
+            if (overrides.TryGetValue(location, out over))
+            {
+                over.GiveObject();
+            }
         }
         return toReturn;
     }
@@ -120,15 +138,26 @@ public class ObjectPlacement : MonoBehaviour
     {
         Vector3 location = gridPosition(position);
         objects.Add(location, obj);
-        obj.transform.position = GetFinalLocation(location); //new Vector3(location.x, 0, location.y);
+        PickupOverride over;
+        if (overrides.TryGetValue(location, out over))
+        {
+            over.PassObject(obj);
+            obj.transform.position = over.getLocation();
+        }
+        else
+        {
+            obj.transform.position = GetCellLocation(location);
+        }
     }
     
     //Return real world location of grid coord
     public Vector3 GetCellLocation(Vector2 location)
     {
-        return grid.GetCellCenterWorld(new Vector3Int((int) location.x, 0, (int) location.y));
+        Vector3 vec = grid.GetCellCenterWorld(new Vector3Int((int) location.x, 0, (int) location.y));
+        return new Vector3(vec.x, dropHeight, vec.z);
     }
 
+    //CURRENTLY DEFUNCT, BUT MIGHT BE USEFUL LATER
     //Return the location of grid coord, factoring in overrides
     public Vector3 GetFinalLocation(Vector2 location)
     {
@@ -141,6 +170,24 @@ public class ObjectPlacement : MonoBehaviour
         else
         {
             return GetCellLocation(location);
+        }
+    }
+
+    public void Replace(Vector3 position, GameObject obj)
+    {
+        Vector2 loc = gridPosition(position);
+        GameObject outObj;
+        if (objects.TryGetValue(loc, out outObj))
+        {
+            //We have an object, so replace it
+            objects.Remove(loc);
+            objects.Add(loc, obj);
+        }
+        else
+        {
+            Debug.LogError("Attempted to replace something at an empty spot!");
+            //Add it? The caller seemed to want it here 
+            objects.Add(loc, obj);
         }
     }
 
@@ -158,6 +205,14 @@ public class ObjectPlacement : MonoBehaviour
         return false;
     }
 
+    public void SignalPosition(Vector3 position)
+    {
+        signaledPosition = position;
+        Vector2 loc = gridPosition(position);
+        Vector3 norm = GetCellLocation(loc);
+        signal.transform.position = new Vector3(norm.x, indicatorHeight, norm.z);
+    }
+
     private void OnDrawGizmos()
     {
         if (player)
@@ -165,6 +220,10 @@ public class ObjectPlacement : MonoBehaviour
             Gizmos.color = Color.red;
             Vector2 spot = gridPosition(player.transform.position);
             Gizmos.DrawWireCube(GetCellLocation(spot), grid.cellSize);
+            
+            //Draw the other cube
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(signaledPosition, grid.cellSize);
         }
 
         if (objects != null)
@@ -188,7 +247,9 @@ public class ObjectPlacement : MonoBehaviour
                 Gizmos.DrawLine(GetCellLocation(spot), kvp.Value.getLocation());
             }
         }
+
         
+
         Gizmos.color = Color.green;
         Grid g = GetComponent<Grid>();
         for (float i = 0; i <= dist; i += g.cellSize.x)
@@ -201,5 +262,17 @@ public class ObjectPlacement : MonoBehaviour
             Gizmos.DrawLine(new Vector3(-dist, 0, j), new Vector3(dist, 0, j));
             Gizmos.DrawLine(new Vector3(-dist, 0, -j), new Vector3(dist, 0, -j));
         }
+        
+        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Vector3 planeSize = new Vector3(.3f, .1f, .3f);
+        Gizmos.DrawCube(new Vector3(0, dropHeight, 0), planeSize);
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawCube(new Vector3(0, indicatorHeight, 0), planeSize);
     }
 }

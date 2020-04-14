@@ -14,15 +14,24 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Oven.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Cooking.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Oven.cs" />
+        <option value="$PROJECT_DIR$/Assets/Ingredient.cs" />
         <option value="$PROJECT_DIR$/Assets/PickupOverride.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPlacement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Cooking.cs" />
       </list>
     </option>
   </component>
@@ -76,6 +85,10 @@
       <workItem from="1586480950217" duration="2372000" />
       <workItem from="1586488515793" duration="2601000" />
       <workItem from="1586491515628" duration="8000" />
+      <workItem from="1586491755437" duration="206000" />
+      <workItem from="1586638235368" duration="5008000" />
+      <workItem from="1586790637789" duration="3074000" />
+      <workItem from="1586874135776" duration="150000" />
     </task>
     <servers />
   </component>
@@ -102,9 +115,9 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="485" y="205" key="RiderGenerateDialog/0.0.1504.963@0.0.1504.963" timestamp="1586478682587" />
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1586481557517">
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1586791777193">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1586481557517" />
+    <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1586791777193" />
   </component>
 </project>

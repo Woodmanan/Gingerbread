@@ -31,6 +31,13 @@ public class Movement : MonoBehaviour
         {
             inputDir = inputDir.normalized;
         }
+
+        if (inputDir.magnitude > .1)
+        {
+            float angle = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, angle, 0);
+        }
+        
         
         Vector3 movement = new Vector3(inputDir.x, rig.velocity.y, inputDir.y) * speed;
         if (Input.GetKey(SprintKey))
