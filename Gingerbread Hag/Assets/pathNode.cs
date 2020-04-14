@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Candy : MonoBehaviour
+public class pathNode : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool visited = false;
-    public bool canBeSeenByChildren = true;
     void Start()
     {
-        
+        transform.GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -17,6 +15,4 @@ public class Candy : MonoBehaviour
     {
         
     }
-
-    
 }

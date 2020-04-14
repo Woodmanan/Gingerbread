@@ -12,6 +12,9 @@ public class ObjectPickup : MonoBehaviour
     [SerializeField] private float pickupDistance;
     private Vector3 inFront;
     
+    [SerializeField] private bool gridLogicActive;
+
+    public bool holdingChild;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +28,9 @@ public class ObjectPickup : MonoBehaviour
         ObjectPlacement.instance.SignalPosition(inFront);
         
         if (Input.GetKeyDown(pickupKey))
+        if (holdingChild) //the "child" is a child of the player transform
         {
-            if (held)
+            if (Input.GetKeyDown(pickupKey));
             {
                 print("Location: " + inFront);
                 //Attempt drop
@@ -39,13 +43,36 @@ public class ObjectPickup : MonoBehaviour
                 {
                     print("Hwat the fuck.");
                 }
+
             }
-            else
+
+        }
+        else
+        {
+            if (Input.GetKeyDown(pickupKey) && gridLogicActive)
             {
                 held = ObjectPlacement.instance.PickUp(inFront);
                 if (held)
                 {
-                    held.SetActive(false);
+                    print("Location: " + transform.position);
+                    //Attempt drop
+                    if (ObjectPlacement.instance.Drop(held, transform.position))
+                    {
+                        held.SetActive(true);
+                        held = null;
+                    }
+                    else
+                    {
+                        print("Hwat the fuck.");
+                    }
+                }
+                else
+                {
+                    held = ObjectPlacement.instance.PickUp(transform.position);
+                    if (held)
+                    {
+                        held.SetActive(false);
+                    }
                 }
             }
         }
@@ -56,5 +83,20 @@ public class ObjectPickup : MonoBehaviour
         Gizmos.color = Color.white;
         inFront = transform.position + transform.forward * pickupDistance;
         Gizmos.DrawWireSphere(inFront, .3f);
+    }
+    
+    public KeyCode GetKey()
+    {
+        return pickupKey;
+    }
+
+    public void SetHoldingChild(bool holding)
+    {
+        holdingChild = holding;
+    }
+    
+    public bool GetHoldingChild()
+    {
+        return holdingChild;
     }
 }

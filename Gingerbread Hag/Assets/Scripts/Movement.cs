@@ -46,4 +46,6 @@ public class Movement : MonoBehaviour
         }
         rig.velocity = movement;
     }
+
+
 }

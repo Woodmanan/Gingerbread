@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4874147845204022058}
   - component: {fileID: 4874147845204022059}
   - component: {fileID: 4874147845204022060}
+  - component: {fileID: 4494094512086213995}
   m_Layer: 0
   m_Name: pathNode
   m_TagString: RandomLocation
@@ -94,3 +95,15 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &4494094512086213995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874147845204022061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 852a38dab5e66054d9e5493e7ec34b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
