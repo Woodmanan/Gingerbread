@@ -7,7 +7,10 @@ public class ObjectPickup : MonoBehaviour
     [SerializeField] private GameObject held;
 
     [SerializeField] private KeyCode pickupKey;
-    
+
+    [SerializeField] private bool gridLogicActive;
+
+    public bool holdingChild;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +20,7 @@ public class ObjectPickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(pickupKey))
+        if (Input.GetKeyDown(pickupKey) && gridLogicActive)
         {
             if (held)
             {

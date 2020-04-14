@@ -13,15 +13,15 @@ public class ChildBeta : MonoBehaviour
 
     private bool gettingCandy = false;
     private bool hasCandy = false;
-    private int timeToEatCandy = 6;
+    private int timeToEatCandy = 10;
     private double eatingCandyTimer;
 
     private bool isHeld = false;
     private bool isMoving = true;
 
-    private int witchKidnapRange = 5;
+    private int witchKidnapRange = 2;
 
-    public GameObject theWitch;
+    private GameObject theWitch;
 
     private KeyCode pickUpKey;
     void Start()
@@ -32,10 +32,14 @@ public class ChildBeta : MonoBehaviour
         randNum = (int)Random.Range(0, randomLocations.Length-1);
         currentGoal = randomLocations[randNum].transform;
 
-        if (theWitch != null)
+        if (theWitch == null)
         {
+            theWitch = GameObject.FindGameObjectWithTag("Player");
 
-            pickUpKey = theWitch.GetComponent<ObjectPickup>().GetKey();
+            if (theWitch != null)
+            {
+                pickUpKey = theWitch.GetComponent<ObjectPickup>().GetKey();
+            }
 
             
         }
@@ -170,9 +174,20 @@ public class ChildBeta : MonoBehaviour
                 if (Input.GetKeyDown(pickUpKey))
                 {
 
-                    
-                    transform.parent = theWitch.transform;
-                    transform.localPosition = new Vector3(0, 5, 0);
+                    if (theWitch.GetComponent<ObjectPickup>().holdingChild)
+                    {
+
+                    }
+                    else
+                    {
+                        transform.parent = theWitch.transform;
+                        transform.position = theWitch.transform.position + new Vector3(0, 2, 0);
+                        Destroy(transform.GetComponent<NavMeshAgent>());
+                        theWitch.GetComponent<ObjectPickup>().holdingChild = true;
+                        Destroy(currentGoal.gameObject);
+                        isHeld = true;
+                    }
+                    Debug.Log("successful kidnapping");
                     
 
 
@@ -210,6 +225,7 @@ public class ChildBeta : MonoBehaviour
         {
 
             Destroy(transform.gameObject);
+            theWitch.GetComponent<ObjectPickup>().holdingChild = false;
 
 
 
