@@ -13,10 +13,17 @@ public class ChildBeta : MonoBehaviour
 
     private bool gettingCandy = false;
     private bool hasCandy = false;
-    private int timeToEatCandy = 6;
+    private int timeToEatCandy = 10;
     private double eatingCandyTimer;
 
-    
+    private bool isHeld = false;
+    private bool isMoving = true;
+
+    private int witchKidnapRange = 2;
+
+    private GameObject theWitch;
+
+    private KeyCode pickUpKey;
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -24,6 +31,18 @@ public class ChildBeta : MonoBehaviour
         randomLocations = GameObject.FindGameObjectsWithTag("RandomLocation");
         randNum = (int)Random.Range(0, randomLocations.Length-1);
         currentGoal = randomLocations[randNum].transform;
+
+        if (theWitch == null)
+        {
+            theWitch = GameObject.FindGameObjectWithTag("Player");
+
+            if (theWitch != null)
+            {
+                pickUpKey = theWitch.GetComponent<ObjectPickup>().GetKey();
+            }
+
+            
+        }
 
         if (_navMeshAgent == null)
         {
@@ -39,44 +58,37 @@ public class ChildBeta : MonoBehaviour
 
     void Update()
     {
-
-        if (gettingCandy)
+        if (isHeld)
         {
-            if (currentGoal.gameObject.GetComponent<Candy>().visited == true && 
-                gettingCandy == true)
+            Kidnapped();
+        }
+        else
+        {
+            if (gettingCandy)
+            {
+
+                GettingCandy();
+            }
+            else if (hasCandy)
+            {
+
+
+                EatingCandy();
+
+
+            }
+            else if (currentGoal == null)
             {
                 toRandomDirection();
-                gettingCandy = false;
+
 
             }
             else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 1)
             {
 
-                currentGoal.gameObject.GetComponent<Candy>().visited = true;
-                gettingCandy = false;
-                hasCandy = true;
-            }
-
-        }
-        else if(hasCandy)
-        {
-            eatingCandyTimer += Time.deltaTime;
-
-            if (eatingCandyTimer > timeToEatCandy)
-            {
-                eatingCandyTimer = 0;
-                Destroy(currentGoal.gameObject);
-                hasCandy = false;
                 toRandomDirection();
+
             }
-
-
-        }
-        else
-        {
-
-            toRandomDirection();
-            
         }
 
 
@@ -98,19 +110,17 @@ public class ChildBeta : MonoBehaviour
 
     private void toRandomDirection()
     {
-        if (Vector3.Distance(transform.position, currentGoal.position) < 1)
+        randNum += 1;
+
+        if (randNum >= randomLocations.Length)
         {
-            randNum += 1;
 
-            if (randNum >= randomLocations.Length)
-            {
+            randNum = 0;
 
-                randNum = 0;
-
-            }
-            currentGoal = randomLocations[randNum].transform;
-            SetDestination();
         }
+        currentGoal = randomLocations[randNum].transform;
+        SetDestination();
+        
 
 
 
@@ -129,5 +139,97 @@ public class ChildBeta : MonoBehaviour
 
 
         }
+    }
+
+    private void EatingCandy()
+    {
+        eatingCandyTimer += Time.deltaTime;
+
+        GetComponent<NavMeshAgent>().isStopped = true;
+        GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+
+        if (eatingCandyTimer > timeToEatCandy)
+        {
+
+            eatingCandyTimer = 0;
+            if (currentGoal != null)
+            {
+                Destroy(currentGoal.gameObject);
+            }
+
+            currentGoal = null;
+
+            GetComponent<NavMeshAgent>().isStopped = false;
+
+            hasCandy = false;
+
+
+            toRandomDirection();
+        }
+        else if (theWitch != null)
+        {
+            if (Vector3.Distance(theWitch.transform.position, transform.position) < witchKidnapRange)
+            {
+
+                if (Input.GetKeyDown(pickUpKey))
+                {
+
+                    if (theWitch.GetComponent<ObjectPickup>().GetHoldingChild())
+                    {
+
+                    }
+                    else
+                    {
+                        transform.parent = theWitch.transform;
+                        transform.position = theWitch.transform.position + new Vector3(0, 2, 0);
+                        Destroy(transform.GetComponent<NavMeshAgent>());
+                        theWitch.GetComponent<ObjectPickup>().SetHoldingChild(true);
+                        Destroy(currentGoal.gameObject);
+                        isHeld = true;
+                    }
+                    Debug.Log("successful kidnapping");
+                    
+
+
+                }
+            }
+
+
+        }
+
+    }
+
+    private void GettingCandy()
+    {
+        if (currentGoal.gameObject.GetComponent<Candy>().visited == true &&
+                gettingCandy == true)
+        {
+            toRandomDirection();
+            gettingCandy = false;
+
+        }
+        else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 1)
+        {
+
+            currentGoal.gameObject.GetComponent<Candy>().visited = true;
+            gettingCandy = false;
+            hasCandy = true;
+        }
+
+    }
+
+
+    private void Kidnapped()
+    {
+        if (Input.GetKeyDown(pickUpKey))
+        {
+
+            Destroy(transform.gameObject);
+            theWitch.GetComponent<ObjectPickup>().SetHoldingChild(false);
+
+
+
+        }
+
     }
 }
