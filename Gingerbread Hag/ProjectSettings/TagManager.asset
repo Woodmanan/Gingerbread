@@ -9,6 +9,8 @@ TagManager:
   - Child
   - Hunter
   - WitchStore
+  - Grid
+  - ChildController
   layers:
   - Default
   - TransparentFX

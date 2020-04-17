@@ -25,7 +25,7 @@ public class PickupOverride : MonoBehaviour
 
     IEnumerator Register()
     {
-        while (!ObjectPlacement.instance.RegisterOverride(gameObject))
+        while (!ObjectPlacement.instance.RegisterOverride(this))
         {
             print("Attempting Register");
             yield return new WaitForSeconds(.1f);
@@ -47,6 +47,12 @@ public class PickupOverride : MonoBehaviour
     public void GiveObject()
     {
         OnDrop.Invoke();
+    }
+
+    public void Clear()
+    {
+        print("Pickup Override is clearing point: " + getLocation());
+        ObjectPlacement.instance.ClearPoint(getLocation());
     }
     
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,13 +25,21 @@ public class ChildBeta : MonoBehaviour
     private GameObject theWitch;
 
     private KeyCode pickUpKey;
+
+    [SerializeField] private Candy.CandyColor[] RecognizedColors;
+
+    private ParticleSystem particles;
+
+    //The delay between when the gameojbect attempts to get new targets
+    [SerializeField] private float SearchingDelay = 2f;
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
 
         randomLocations = GameObject.FindGameObjectsWithTag("RandomLocation");
-        randNum = (int)Random.Range(0, randomLocations.Length-1);
-        currentGoal = randomLocations[randNum].transform;
+        toRandomDirection();
+
+        StartCoroutine(SearchForTargets(SearchingDelay));
 
         if (theWitch == null)
         {
@@ -53,7 +62,32 @@ public class ChildBeta : MonoBehaviour
             SetDestination();
         }
 
+        particles = GetComponent<ParticleSystem>();
 
+    }
+
+    IEnumerator SearchForTargets(float delay)
+    {
+        //Random wait, to offset all actors. Helps keep the framerate up.
+        yield return new WaitForSeconds(Random.Range(0, delay));
+        while (true)
+        {
+            yield return new WaitForSeconds(delay);
+            randomLocations = GameObject.FindGameObjectsWithTag("RandomLocation");
+            if (randomLocations.Length == 0)
+            {
+                //Stop moving if our target disappears!
+                currentGoal = transform;
+                SetDestination();
+            }
+
+            /*
+            print("Targets: ");
+            foreach (GameObject g in randomLocations)
+            {
+                print(g.name);
+            }*/
+        }
     }
 
     void Update()
@@ -77,13 +111,13 @@ public class ChildBeta : MonoBehaviour
 
 
             }
-            else if (currentGoal == null)
+            else if (currentGoal == null || !currentGoal.CompareTag("RandomLocation"))
             {
                 toRandomDirection();
 
 
             }
-            else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 1)
+            else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 2)
             {
 
                 toRandomDirection();
@@ -99,9 +133,9 @@ public class ChildBeta : MonoBehaviour
 
     private void SetDestination()
     {
-        if (currentGoal != null)
+        if (currentGoal)
         {
-            Vector3 goalVector = currentGoal.transform.position;
+            Vector3 goalVector = currentGoal.position;
             _navMeshAgent.SetDestination(goalVector);
         }
 
@@ -110,13 +144,23 @@ public class ChildBeta : MonoBehaviour
 
     private void toRandomDirection()
     {
-        randNum += 1;
-
-        if (randNum >= randomLocations.Length)
+        if (randomLocations.Length == 0)
         {
+            currentGoal = transform;
+            return;
+        }
 
-            randNum = 0;
-
+        //Slightly different math, guarantees a uniquely different choice without
+        //making all children follow the same path
+        randNum += Random.Range(0, randomLocations.Length - 2) + 1;
+        
+        while (randNum >= randomLocations.Length)
+        {
+            randNum -= randomLocations.Length;
+            if (randNum < 0)
+            {
+                randNum = 0;
+            }
         }
         currentGoal = randomLocations[randNum].transform;
         SetDestination();
@@ -130,7 +174,8 @@ public class ChildBeta : MonoBehaviour
        
         if (other.CompareTag("Candy"))
         {
-            if (!other.gameObject.GetComponent<Candy>().visited)
+            Candy candy = other.GetComponent<Candy>();
+            if (!candy.visited && InterestedIn(candy.color))
             {
                 currentGoal = other.transform;
                 gettingCandy = true;
@@ -141,8 +186,22 @@ public class ChildBeta : MonoBehaviour
         }
     }
 
+    private bool InterestedIn(Candy.CandyColor color)
+    {
+        return RecognizedColors.Contains(color);
+    }
+
     private void EatingCandy()
     {
+        if (!currentGoal.gameObject.active)
+        {
+            currentGoal = null;
+
+            GetComponent<NavMeshAgent>().isStopped = false;
+            particles.Stop();
+            hasCandy = false;
+            return;
+        }
         eatingCandyTimer += Time.deltaTime;
 
         GetComponent<NavMeshAgent>().isStopped = true;
@@ -152,9 +211,15 @@ public class ChildBeta : MonoBehaviour
         {
 
             eatingCandyTimer = 0;
-            if (currentGoal != null)
+            if (currentGoal)
             {
-                Destroy(currentGoal.gameObject);
+                if (currentGoal.CompareTag("Candy"))
+                {
+                    //GameObject obj = ObjectPlacement.instance.PickUp(transform.position);
+                    print("Child ate " + currentGoal.gameObject);
+                    Destroy(currentGoal.gameObject);
+                    particles.Stop();
+                }
             }
 
             currentGoal = null;
@@ -180,12 +245,16 @@ public class ChildBeta : MonoBehaviour
                     }
                     else
                     {
+                        //Code from when child picked themselves up
+                        //Keeping around because it could be good for making struggling child!
+                        /*
                         transform.parent = theWitch.transform;
                         transform.position = theWitch.transform.position + new Vector3(0, 2, 0);
                         Destroy(transform.GetComponent<NavMeshAgent>());
                         theWitch.GetComponent<ObjectPickup>().SetHoldingChild(true);
                         Destroy(currentGoal.gameObject);
                         isHeld = true;
+                        */
                     }
                     Debug.Log("successful kidnapping");
                     
@@ -206,14 +275,16 @@ public class ChildBeta : MonoBehaviour
         {
             toRandomDirection();
             gettingCandy = false;
+            particles.Stop();
 
         }
-        else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 1)
+        else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 2)
         {
 
             currentGoal.gameObject.GetComponent<Candy>().visited = true;
             gettingCandy = false;
             hasCandy = true;
+            particles.Play();
         }
 
     }
@@ -231,5 +302,23 @@ public class ChildBeta : MonoBehaviour
 
         }
 
+    }
+
+    //Function that ties up loose ends within the child
+    public void GetGrabbed()
+    {
+        Destroy(transform.GetComponent<NavMeshAgent>());
+        Candy currentCandy = currentGoal.GetComponent<Candy>();
+        if (currentCandy)
+        {
+            currentCandy.visited = false;
+        }
+        particles.Stop();
+    }
+
+    //Should we be allowed to grab this child?
+    public bool CanBeGrabbed()
+    {
+        return hasCandy;
     }
 }

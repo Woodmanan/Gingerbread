@@ -24,7 +24,8 @@ public class Ingredient : MonoBehaviour
 
     public GameObject FinishCooking()
     {
-        GameObject next = Instantiate(becomes, transform.position, transform.rotation);
+        GameObject next = Instantiate(becomes);
+        next.transform.position = transform.position;
         return next;
     }
 }

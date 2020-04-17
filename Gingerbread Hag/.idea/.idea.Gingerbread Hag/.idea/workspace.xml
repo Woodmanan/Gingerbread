@@ -12,12 +12,19 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Oven.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Cooking.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/DestroyChildren.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/pathNode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ChildControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlaceSelf.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ChildPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FollowPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cooking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -25,13 +32,27 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" />
-        <option value="$PROJECT_DIR$/Assets/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Oven.cs" />
         <option value="$PROJECT_DIR$/Assets/Ingredient.cs" />
         <option value="$PROJECT_DIR$/Assets/PickupOverride.cs" />
-        <option value="$PROJECT_DIR$/Assets/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/Cooking.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObjectPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlaceSelf.cs" />
+        <option value="$PROJECT_DIR$/Assets/ObjectPlacement.cs" />
+        <option value="$PROJECT_DIR$/Assets/FollowPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PlaceSelf.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/ChildPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
+        <option value="$PROJECT_DIR$/Assets/TestNPC/Candy.cs" />
+        <option value="$PROJECT_DIR$/Assets/TestNPC/ChildBeta.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
+        <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/DestroyChildren.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" />
       </list>
     </option>
   </component>
@@ -89,6 +110,11 @@
       <workItem from="1586638235368" duration="5008000" />
       <workItem from="1586790637789" duration="3074000" />
       <workItem from="1586874135776" duration="150000" />
+      <workItem from="1586876584379" duration="3886000" />
+      <workItem from="1586881855767" duration="594000" />
+      <workItem from="1587051090853" duration="8484000" />
+      <workItem from="1587076673807" duration="14259000" />
+      <workItem from="1587096044748" duration="574000" />
     </task>
     <servers />
   </component>
@@ -111,13 +137,44 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="511" y="343" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1" timestamp="1586877276316">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="511" y="343" key="ANALYSIS_DLG_com.jetbrains.rider.actions.impl.cleanup.RiderCodeCleanupAction$actionPerformed$dlg$1/0.0.1504.963@0.0.1504.963" timestamp="1586877276316" />
     <state x="485" y="205" key="RiderGenerateDialog" timestamp="1586478682587">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="485" y="205" key="RiderGenerateDialog/0.0.1504.963@0.0.1504.963" timestamp="1586478682587" />
+    <state x="542" y="161" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587083137645">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="542" y="161" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1504.963@0.0.1504.963" timestamp="1587083137645" />
+    <state x="409" y="222" key="run.anything.popup" timestamp="1587090588273">
+      <screen x="0" y="0" width="1504" height="963" />
+    </state>
+    <state x="409" y="222" key="run.anything.popup/0.0.1504.963@0.0.1504.963" timestamp="1587090588273" />
     <state x="415" y="206" width="672" height="678" key="search.everywhere.popup" timestamp="1586791777193">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1586791777193" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs</url>
+          <line>139</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" initialLine="139">
+            <startOffsets>
+              <option value="3275" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3276" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -15,8 +15,12 @@
     </explicitIncludes>
     <explicitExcludes>
       <Path>.idea</Path>
+      <Path>Alpha Build</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
+      <Path>Temp</Path>
+      <Path>WebGLBuild</Path>
+      <Path>WegGLBUild</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Xml;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UIElements;
@@ -56,7 +55,7 @@ public class ObjectPlacement : MonoBehaviour
     void Start()
     {
         //Singleton code
-        if (Instance != this)
+        if (Instance != this && Instance)
         {
             Destroy(this.gameObject);
         }
@@ -191,14 +190,25 @@ public class ObjectPlacement : MonoBehaviour
         }
     }
 
-    public bool RegisterOverride(GameObject obj)
+    public bool ClearPoint(Vector3 position)
+    {
+        Vector2 loc = gridPosition(position);
+        return objects.Remove(loc);
+    }
+
+    public bool RegisterOverride(PickupOverride over)
     {
         if (grid)
         {
-            PickupOverride over = obj.GetComponent<PickupOverride>();
-            Vector2 location = gridPosition(obj.transform.position);
+            Vector2 location = gridPosition(over.getLocation());
             overrides.Add(location, over);
             print("Override registered! " + location);
+            GameObject objectHeld;
+            if (objects.TryGetValue(location, out objectHeld))
+            {
+                objectHeld = PickUp(over.getLocation());
+                Drop(objectHeld, over.getLocation());
+            }
             return true;
         }
 
