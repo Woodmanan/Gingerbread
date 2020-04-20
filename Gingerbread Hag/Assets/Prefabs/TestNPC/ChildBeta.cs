@@ -26,6 +26,7 @@ public class ChildBeta : MonoBehaviour
 
     private KeyCode pickUpKey;
 
+
     [SerializeField] private Candy.CandyColor[] RecognizedColors;
 
     private ParticleSystem particles;
@@ -100,12 +101,14 @@ public class ChildBeta : MonoBehaviour
         {
             if (gettingCandy)
             {
-
+                if (!GetComponent<AudioSource>().isPlaying)
+                {
+                    GetComponent<AudioSource>().Play();
+                }
                 GettingCandy();
             }
             else if (hasCandy)
             {
-
 
                 EatingCandy();
 
@@ -199,6 +202,7 @@ public class ChildBeta : MonoBehaviour
 
             GetComponent<NavMeshAgent>().isStopped = false;
             particles.Stop();
+            GetComponent<AudioSource>().Stop();
             hasCandy = false;
             return;
         }
@@ -219,6 +223,7 @@ public class ChildBeta : MonoBehaviour
                     print("Child ate " + currentGoal.gameObject);
                     Destroy(currentGoal.gameObject);
                     particles.Stop();
+                    GetComponent<AudioSource>().Stop();
                 }
             }
 
@@ -257,7 +262,7 @@ public class ChildBeta : MonoBehaviour
                         */
                     }
                     Debug.Log("successful kidnapping");
-                    
+
 
 
                 }
@@ -276,6 +281,7 @@ public class ChildBeta : MonoBehaviour
             toRandomDirection();
             gettingCandy = false;
             particles.Stop();
+            GetComponent<AudioSource>().Stop();
 
         }
         else if (Vector3.Distance(transform.position, currentGoal.transform.position) < 2)
@@ -314,6 +320,7 @@ public class ChildBeta : MonoBehaviour
             currentCandy.visited = false;
         }
         particles.Stop();
+        GetComponent<AudioSource>().Stop();
     }
 
     //Should we be allowed to grab this child?
