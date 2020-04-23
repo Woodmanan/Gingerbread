@@ -7,17 +7,19 @@ public class Recipebook : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Dictionary<string, Recipe> recipes;
+    Dictionary<string, List<string>> recipes;
     Dropdown dropdown;
     string currentRecipe;
-    int currentRecipeTree = 1;
+   
 
     public Texture  apple;
     public Texture orange;
+    public Texture pot;
+    public Texture stove;
     
     void Start()
     {
-        recipes = new Dictionary<string, Recipe>();
+        recipes = new Dictionary<string, List<string>>();
         dropdown = transform.GetChild(0).GetComponent<Dropdown>();
 
         dropdown.onValueChanged.AddListener(delegate {
@@ -26,28 +28,31 @@ public class Recipebook : MonoBehaviour
 
         dropdown.value = 0;
 
+        //  AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
 
-        AddRecipe("Apple", "Apple", "Apple", "Apple");
-        AddRecipe("Orange", "Orange", "Orange");
+        AddRecipe("Apple", "Apple", "Stove", "Apple"); //two ingredients with mixing instructions and result
+        AddRecipe("Orange", "none", "Pot", "Orange"); // 1 ingredient with cooking instructions and result
 
-        currentRecipe = dropdown.options[0].text;
+        currentRecipe = "Apple";
+
+        DisplayRecipe(currentRecipe);
 
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
     {
-        recipes.Add(result, new Recipe(firstIngredient, secondIngredient, process, result));
+        recipes[result] = new List<string>();
 
+        recipes[result].Add(firstIngredient);
+        recipes[result].Add(secondIngredient);
+        recipes[result].Add(process);
+        recipes[result].Add(result);
+        
         dropdown.ClearOptions();
 
         List<string> recipenames = new List<string>();
+
 
         foreach (string i in recipes.Keys)
         {
@@ -57,66 +62,57 @@ public class Recipebook : MonoBehaviour
         dropdown.AddOptions(recipenames);
     }
 
-    public void AddRecipe(string firstIngredient, string process, string result)
-    {
-
-        recipes.Add(result, new Recipe(firstIngredient, "none", process, result));
-
-        dropdown.ClearOptions();
-
-        List<string> recipenames = new List<string>();
-
-        foreach (string i in recipes.Keys)
-        {
-            recipenames.Add(i);
-        }
-
-        dropdown.AddOptions(recipenames);
-    }
+    
 
     private void DisplayRecipe(string recipeName)
     {
 
-        Recipe currentRecipe = recipes[recipeName];
+        List<string> currentRecipe = recipes[recipeName];
 
         GameObject firstTree = transform.GetChild(1).gameObject;
         GameObject secondTree = transform.GetChild(2).gameObject;
 
-        if (currentRecipe.secondIngredient == "none")
+        if (currentRecipe[1] == "none")
         {
-            currentRecipeTree = 2;
-            firstTree.SetActive(true);
-            secondTree.SetActive(false);
+           
+            firstTree.SetActive(false);
+            secondTree.SetActive(true);
 
-            Image firstIngredient = secondTree.transform.GetChild(0).GetComponent<Image>();
+            RawImage firstIngredient = secondTree.transform.GetChild(0).GetComponent<RawImage>();
+            firstIngredient.texture = GetTexture(recipes[recipeName][0]);
 
-            Image process = secondTree.transform.GetChild(1).GetComponent<Image>();
 
-            Image result = secondTree.transform.GetChild(2).GetComponent<Image>();
+            RawImage process = secondTree.transform.GetChild(1).GetComponent<RawImage>();
+            process.texture = GetTexture(recipes[recipeName][2]);
+
+
+            RawImage result = secondTree.transform.GetChild(2).GetComponent<RawImage>();
+            result.texture = GetTexture(recipes[recipeName][3]);
+
 
 
         }
         else
         {
-            currentRecipeTree = 1;
-            firstTree.SetActive(false);
-            secondTree.SetActive(true);
+            
+            firstTree.SetActive(true);
+            secondTree.SetActive(false);
 
             RawImage firstIngredient = firstTree.transform.GetChild(0).GetComponent<RawImage>();
-            firstIngredient.texture = GetTexture(currentRecipe.firstIngredient);
+            firstIngredient.texture = GetTexture(recipes[recipeName][0]);
 
             RawImage secondIngredient = firstTree.transform.GetChild(1).GetComponent<RawImage>();
-            firstIngredient.texture = GetTexture(currentRecipe.secondIngredient);
+            secondIngredient.texture = GetTexture(recipes[recipeName][1]);
 
 
             RawImage process = firstTree.transform.GetChild(2).GetComponent<RawImage>();
-            firstIngredient.texture = GetTexture(currentRecipe.process);
+            process.texture = GetTexture(recipes[recipeName][2]);
 
 
             RawImage result = firstTree.transform.GetChild(3).GetComponent<RawImage>();
-            firstIngredient.texture = GetTexture(currentRecipe.result);
+            result.texture = GetTexture(recipes[recipeName][3]);
 
-            Debug.Log(" I AM OVER HERE");
+            Debug.Log(recipes[recipeName][3]);
 
         }
 
@@ -125,13 +121,21 @@ public class Recipebook : MonoBehaviour
     private Texture GetTexture(string name)
     {
 
-        if (name == "apple")
+        if (name == "Apple")
         {
             return apple;
         }
-        else if(name == "orange")
+        else if(name == "Orange")
         {
             return orange;
+        }
+        else if(name == "Pot")
+        {
+            return pot;
+        }
+        else if(name == "Stove")
+        {
+            return stove;
         }
 
         return null;
@@ -141,7 +145,12 @@ public class Recipebook : MonoBehaviour
     
     void DropDownValueChanged()
     {
-        Debug.Log("Dropdown Value has Changed");
+
+        currentRecipe = dropdown.options[dropdown.value].text;
+        DisplayRecipe(currentRecipe);
+        
+
+
     }
 
 }

@@ -1008,7 +1008,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 547484290}
   m_LocalRotation: {x: -0, y: -0, z: 2.3283059e-10, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00011601194}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.67161995, y: 0.67162, z: 0.6716198}
   m_Children: []
   m_Father: {fileID: 1988217079}
@@ -1016,7 +1016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72.60004, y: 0}
+  m_AnchoredPosition: {x: 1, y: -0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547484292
@@ -2998,6 +2998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apple: {fileID: 2800000, guid: 4aad84ff0ee910147a89a65285affa9d, type: 3}
   orange: {fileID: 2800000, guid: 2f8d0be701ac0c348b745e4fef38a4c6, type: 3}
+  pot: {fileID: 2800000, guid: 46dbc7b743212a040ba71bc697553188, type: 3}
+  stove: {fileID: 2800000, guid: fbbf722c93a9eac458af9e7d1b3f7910, type: 3}
 --- !u!1 &1912065955
 GameObject:
   m_ObjectHideFlags: 0

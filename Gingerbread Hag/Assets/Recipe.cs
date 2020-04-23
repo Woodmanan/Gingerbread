@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Recipe 
+public class Recipe : MonoBehaviour
 {
     // Start is called before the first frame update
     public string firstIngredient;
@@ -25,4 +25,6 @@ public class Recipe
         this.result = result;
 
     }
+
+    
 }
