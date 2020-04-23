@@ -19,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Refill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ChildPoint.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,18 +42,20 @@
         <option value="$PROJECT_DIR$/Assets/PlaceSelf.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/FollowPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlaceSelf.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/ChildPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/TestNPC/Candy.cs" />
         <option value="$PROJECT_DIR$/Assets/TestNPC/ChildBeta.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
         <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/DestroyChildren.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" />
+        <option value="$PROJECT_DIR$/Assets/Refill.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
       </list>
     </option>
   </component>
@@ -115,6 +118,7 @@
       <workItem from="1587051090853" duration="8484000" />
       <workItem from="1587076673807" duration="14259000" />
       <workItem from="1587096044748" duration="574000" />
+      <workItem from="1587480004818" duration="5811000" />
     </task>
     <servers />
   </component>

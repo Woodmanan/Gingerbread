@@ -20,6 +20,8 @@ public class Cooking : MonoBehaviour
 
     private Ingredient ingredient;
 
+    private float cookTime;
+
     [SerializeField] private ObjectEvent onFinishCooking;
     // Start is called before the first frame update
     void Start()
@@ -32,12 +34,12 @@ public class Cooking : MonoBehaviour
     {
         if (held && isCooking)
         {
-            ingredient.durationOfCooking -= Time.deltaTime;
-            print("Time left: " + ingredient.durationOfCooking);
-            if (ingredient.durationOfCooking <= 0)
+            cookTime -= Time.deltaTime;
+            print("Time left: " + cookTime);
+            if (cookTime <= 0)
             {
                 //Make the new one!
-                GameObject next = ingredient.FinishCooking();
+                GameObject next = ingredient.FinishCooking(performedAction);
                 //Move it to the next one!
                 ObjectPlacement.instance.Replace(transform.position, next);
                 Destroy(held);
@@ -56,7 +58,8 @@ public class Cooking : MonoBehaviour
         {
             print("It has an ingredient in it!");
             //Fancy bool magic
-            isCooking = ingredient.requires == performedAction;
+            cookTime = ingredient.getCooktime(performedAction);
+            isCooking = (cookTime > 0);
         }
         else
         {
