@@ -14,6 +14,10 @@ public class ObjectPickup : MonoBehaviour
     
     [SerializeField] private bool gridLogicActive;
 
+    public AudioClip pickupSFX;
+
+    public AudioClip placeSFX;
+
     public bool holdingChild;
     // Start is called before the first frame update
     void Start()
@@ -54,6 +58,7 @@ public class ObjectPickup : MonoBehaviour
                 if (held)
                 {
                     print("Location: " + transform.position);
+                    GetComponent<AudioSource>().PlayOneShot(placeSFX);
                     //Attempt drop
                     if (ObjectPlacement.instance.Drop(held, inFront))
                     {
@@ -67,10 +72,12 @@ public class ObjectPickup : MonoBehaviour
                 }
                 else
                 {
+                    
                     GameObject child = ChildNearby();
                     //Check for child pickup
                     if (child)
                     {
+                        GetComponent<AudioSource>().PlayOneShot(pickupSFX);
                         //Halt, because the children are currently the ones who signal use
                         held = child;
                         //Child currently doesn't do anything once picked up, so we disable it
@@ -92,6 +99,7 @@ public class ObjectPickup : MonoBehaviour
                         held = ObjectPlacement.instance.PickUp(inFront);
                         if (held)
                         {
+                            GetComponent<AudioSource>().PlayOneShot(pickupSFX);
                             held.SetActive(false);
                         }
                     }
