@@ -16,4 +16,9 @@ public class MinimapCamera : MonoBehaviour
     {
         transform.position = new Vector3(player.transform.position.x, this.transform.position.y, player.transform.position.z);
     }
+
+
+
+
+
 }
