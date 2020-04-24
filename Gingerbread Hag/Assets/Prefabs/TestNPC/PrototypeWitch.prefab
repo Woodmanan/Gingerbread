@@ -147,6 +147,7 @@ MonoBehaviour:
   pickupKey: 32
   pickupDistance: 1.5
   gridLogicActive: 1
+  HoldingOffset: {x: 0, y: 0, z: 0}
   pickupSFX: {fileID: 8300000, guid: df5270222287744a089d18e1153f28a4, type: 3}
   placeSFX: {fileID: 8300000, guid: 1204fa0ddfdc347d891d88cbbfab320b, type: 3}
   holdingChild: 0
