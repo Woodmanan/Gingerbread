@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    public AudioClip bakingSFX;
     public Cooking.cooktype requires;
 
     public float durationOfCooking;
@@ -26,6 +27,10 @@ public class Ingredient : MonoBehaviour
     {
         GameObject next = Instantiate(becomes);
         next.transform.position = transform.position;
+        if (requires == Cooking.cooktype.Baking)
+        {
+            next.GetComponent<AudioSource>().PlayOneShot(bakingSFX);
+        }
         return next;
     }
 }

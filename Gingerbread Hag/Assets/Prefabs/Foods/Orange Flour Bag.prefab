@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174245f34658c6e4689335d033474c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bakingSFX: {fileID: 8300000, guid: ca52f1e6d82a74a0d8e61651acbad88a, type: 3}
   requires: 0
   durationOfCooking: 3
   becomes: {fileID: 3332270072116953748, guid: a7346b985263a6444bde0c830dd6370b, type: 3}
