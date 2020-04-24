@@ -10,7 +10,8 @@ public class Cooking : MonoBehaviour
     {
         Baking,
         Boiling,
-        Frying
+        Frying,
+        Chopping
     }
 
     [SerializeField] private cooktype performedAction;
@@ -20,11 +21,16 @@ public class Cooking : MonoBehaviour
 
     private Ingredient ingredient;
 
+    private float cookTime;
+
+    private ParticleSystem cookingParticles;
+
     [SerializeField] private ObjectEvent onFinishCooking;
     // Start is called before the first frame update
     void Start()
     {
         isCooking = false;
+        cookingParticles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -32,16 +38,17 @@ public class Cooking : MonoBehaviour
     {
         if (held && isCooking)
         {
-            ingredient.durationOfCooking -= Time.deltaTime;
-            print("Time left: " + ingredient.durationOfCooking);
-            if (ingredient.durationOfCooking <= 0)
+            cookTime -= Time.deltaTime;
+            print("Time left: " + cookTime);
+            if (cookTime <= 0)
             {
                 //Make the new one!
-                GameObject next = ingredient.FinishCooking();
+                GameObject next = ingredient.FinishCooking(performedAction);
                 //Move it to the next one!
                 ObjectPlacement.instance.Replace(transform.position, next);
                 Destroy(held);
                 onFinishCooking.Invoke(next);
+                cookingParticles.Stop();
                 StartCooking(next);
             }
         }
@@ -56,7 +63,8 @@ public class Cooking : MonoBehaviour
         {
             print("It has an ingredient in it!");
             //Fancy bool magic
-            isCooking = ingredient.requires == performedAction;
+            cookTime = ingredient.getCooktime(performedAction);
+            isCooking = (cookTime > 0);
         }
         else
         {
@@ -66,6 +74,7 @@ public class Cooking : MonoBehaviour
         if (isCooking)
         {
             print("We can cook it!");
+            cookingParticles.Play();
         }
     }
 
@@ -74,5 +83,6 @@ public class Cooking : MonoBehaviour
         held = null;
         ingredient = null;
         isCooking = false;
+        cookingParticles.Stop();
     }
 }

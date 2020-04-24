@@ -13,7 +13,9 @@ public class Candy : MonoBehaviour
         Green,
         Cyan,
         Blue,
-        Purple
+        Purple,
+        Hansel,
+        Gretel
     }
 
     public CandyColor color;
@@ -24,7 +26,7 @@ public class Candy : MonoBehaviour
     public bool canBeSeenByChildren = true;
     void Start()
     {
-        
+        GameMananger.instance.RegisterCandy(color);
     }
 
     // Update is called once per frame

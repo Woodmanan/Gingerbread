@@ -164,9 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174245f34658c6e4689335d033474c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requires: 0
-  durationOfCooking: 3
-  becomes: {fileID: 6209793671488182326, guid: b855a0dcb25255446a97d5386372e658, type: 3}
+  myRecipes: []
+  combinedRecipes:
+  - mixedWith: 1
+    creates: {fileID: 3328377043019641576, guid: 14d0c6764a1773d4b97085b84ba9c6f2,
+      type: 3}
 --- !u!198 &5396578813984001097
 ParticleSystem:
   m_ObjectHideFlags: 0
