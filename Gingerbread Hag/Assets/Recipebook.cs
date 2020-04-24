@@ -40,6 +40,8 @@ public class Recipebook : MonoBehaviour
 
     }
 
+
+
     public void AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
     {
         recipes[result] = new List<string>();
@@ -62,7 +64,22 @@ public class Recipebook : MonoBehaviour
         dropdown.AddOptions(recipenames);
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            int len = dropdown.options.Count;
+            
+            if (dropdown.value < len - 1)
+            {
+                dropdown.value += 1;
+            }
+            else
+            {
+                dropdown.value = 0;
+            }
+        }
+    }
 
     private void DisplayRecipe(string recipeName)
     {
