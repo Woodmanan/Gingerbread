@@ -11,7 +11,6 @@ public class Candy : MonoBehaviour
         Orange,
         Yellow,
         Green,
-        Cyan,
         Blue,
         Purple,
         Hansel,

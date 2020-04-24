@@ -164,10 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174245f34658c6e4689335d033474c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bakingSFX: {fileID: 0}
   myRecipes: []
   combinedRecipes:
   - mixedWith: 1
-    creates: {fileID: 3328377043019641576, guid: 14d0c6764a1773d4b97085b84ba9c6f2,
+    creates: {fileID: 2412596512629627906, guid: 8b1c31a1f7e6d0a4f82321b0caf9c614,
       type: 3}
 --- !u!198 &5396578813984001097
 ParticleSystem:

@@ -2934,6 +2934,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4567839438708325298, guid: 462c077bfa032504f901071f355fa294,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4567839438708325298, guid: 462c077bfa032504f901071f355fa294,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f914cfdace6f140d1ae57bd0df087d6c, type: 3}
+    - target: {fileID: -4567839438708325298, guid: 462c077bfa032504f901071f355fa294,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1367955820572587868, guid: 462c077bfa032504f901071f355fa294,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5134,6 +5149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8298de4ba9981a3449463b73e7ef565d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnHAndG: 0
   updateDelay: 3
   maxChildren: 5
   spawnDelay: 0.1
@@ -5144,7 +5160,7 @@ MonoBehaviour:
     type: 3}
   childrenToSpawn:
   - {fileID: 954406387893487934, guid: ad79e0ef15e4c8c47a745b7a882edb0f, type: 3}
-  - {fileID: 5324051227873836677, guid: 345f84fe3f397a74cb55d024df9abf38, type: 3}
+  - {fileID: 2783963623505861273, guid: 0381bf5aaefa2424db5f4bda456f7b64, type: 3}
 --- !u!114 &1168510735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5159,7 +5175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hanselCooked: 0
   gretelCooked: 0
-  gameTimer: 120
+  gameTimer: 180
   text: {fileID: 2082584982}
   winConditions:
   - colorNeeded: 2
