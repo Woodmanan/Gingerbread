@@ -18,9 +18,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlaceSelf.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CuttingBoard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Refill.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/71/31e44833/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameMananger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HGFood.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ChildPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/FollowPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
@@ -41,18 +46,23 @@
         <option value="$PROJECT_DIR$/Assets/PlaceSelf.cs" />
         <option value="$PROJECT_DIR$/Assets/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/FollowPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlaceSelf.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/ChildPoint.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/TestNPC/Candy.cs" />
         <option value="$PROJECT_DIR$/Assets/TestNPC/ChildBeta.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
-        <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/DestroyChildren.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" />
+        <option value="$PROJECT_DIR$/Assets/Refill.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
+        <option value="$PROJECT_DIR$/Assets/HGFood.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameMananger.cs" />
+        <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
+        <option value="$PROJECT_DIR$/Assets/CuttingBoard.cs" />
       </list>
     </option>
   </component>
@@ -115,6 +125,9 @@
       <workItem from="1587051090853" duration="8484000" />
       <workItem from="1587076673807" duration="14259000" />
       <workItem from="1587096044748" duration="574000" />
+      <workItem from="1587480004818" duration="5811000" />
+      <workItem from="1587684682547" duration="2645000" />
+      <workItem from="1587687665540" duration="6667000" />
     </task>
     <servers />
   </component>
@@ -145,10 +158,10 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="485" y="205" key="RiderGenerateDialog/0.0.1504.963@0.0.1504.963" timestamp="1586478682587" />
-    <state x="542" y="161" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587083137645">
+    <state x="542" y="161" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587687281587">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
-    <state x="542" y="161" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1504.963@0.0.1504.963" timestamp="1587083137645" />
+    <state x="542" y="161" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1504.963@0.0.1504.963" timestamp="1587687281587" />
     <state x="409" y="222" key="run.anything.popup" timestamp="1587090588273">
       <screen x="0" y="0" width="1504" height="963" />
     </state>
@@ -157,24 +170,5 @@
       <screen x="0" y="0" width="1504" height="963" />
     </state>
     <state x="415" y="206" width="672" height="678" key="search.everywhere.popup/0.0.1504.963@0.0.1504.963" timestamp="1586791777193" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs</url>
-          <line>139</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" initialLine="139">
-            <startOffsets>
-              <option value="3275" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3276" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

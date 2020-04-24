@@ -11,6 +11,8 @@ TagManager:
   - WitchStore
   - Grid
   - ChildController
+  - Sugar
+  - Flour
   layers:
   - Default
   - TransparentFX

@@ -124,6 +124,40 @@ public class ObjectPlacement : MonoBehaviour
             Assert.IsTrue(OnFloor(position) == obj);
             return true;
         }
+        else
+        {
+            print("Performing Checks");
+            //Check for collision
+            GameObject other;
+            Vector2 loc = gridPosition(position);
+            if (objects.TryGetValue(loc, out other))
+            {
+                //Test first combination
+                Ingredient ing = other.GetComponent<Ingredient>();
+                GameObject final;
+                if (ing && (final = ing.combinesWith(obj.tag)))
+                {
+                    final = Instantiate(final);
+                    final.transform.position = other.transform.position;
+                    Replace(position, final);
+                    Destroy(obj);
+                    Destroy(other);
+                    return true;
+                }
+
+                //Test other combination
+                ing = obj.GetComponent<Ingredient>();
+                if (ing && (final = ing.combinesWith(other.tag)))
+                {
+                    final = Instantiate(final);
+                    final.transform.position = other.transform.position;
+                    Replace(position, final);
+                    Destroy(obj);
+                    Destroy(other);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
