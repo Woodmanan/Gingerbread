@@ -5145,7 +5145,6 @@ MonoBehaviour:
   childrenToSpawn:
   - {fileID: 954406387893487934, guid: ad79e0ef15e4c8c47a745b7a882edb0f, type: 3}
   - {fileID: 5324051227873836677, guid: 345f84fe3f397a74cb55d024df9abf38, type: 3}
-  - {fileID: 2783963623505861273, guid: 0381bf5aaefa2424db5f4bda456f7b64, type: 3}
 --- !u!114 &1168510735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5162,6 +5161,10 @@ MonoBehaviour:
   gretelCooked: 0
   gameTimer: 120
   text: {fileID: 2082584982}
+  winConditions:
+  - colorNeeded: 2
+    amountNeeded: 3
+    amountHad: 0
 --- !u!4 &1177755663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7392660488365953235, guid: 982886685464b764cb3aefee3797b156,
@@ -12296,33 +12299,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1533681893}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnDrop:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1533681894}
         m_MethodName: StopCooking
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1533681893}
-        m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13546,7 +13527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9584a166ffd9dc344bd586f6b2377fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choppingKey: 9
+  choppingKey: 47
   distance: 4
 --- !u!4 &1717478941 stripped
 Transform:

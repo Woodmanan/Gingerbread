@@ -23,11 +23,14 @@ public class Cooking : MonoBehaviour
 
     private float cookTime;
 
+    private ParticleSystem cookingParticles;
+
     [SerializeField] private ObjectEvent onFinishCooking;
     // Start is called before the first frame update
     void Start()
     {
         isCooking = false;
+        cookingParticles = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class Cooking : MonoBehaviour
                 ObjectPlacement.instance.Replace(transform.position, next);
                 Destroy(held);
                 onFinishCooking.Invoke(next);
+                cookingParticles.Stop();
                 StartCooking(next);
             }
         }
@@ -70,6 +74,7 @@ public class Cooking : MonoBehaviour
         if (isCooking)
         {
             print("We can cook it!");
+            cookingParticles.Play();
         }
     }
 
@@ -78,5 +83,6 @@ public class Cooking : MonoBehaviour
         held = null;
         ingredient = null;
         isCooking = false;
+        cookingParticles.Stop();
     }
 }

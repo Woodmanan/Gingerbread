@@ -14,6 +14,16 @@ public class GameMananger : MonoBehaviour
 
     public TextMeshProUGUI text;
 
+    [System.Serializable]
+    public struct Colorscore
+    {
+        public Candy.CandyColor colorNeeded;
+        public int amountNeeded;
+        public int amountHad;
+    }
+    
+    public Colorscore[] winConditions;
+
     private static GameMananger Instance;
     public static GameMananger instance
     {
@@ -78,23 +88,19 @@ public class GameMananger : MonoBehaviour
     public void cookGretel()
     {
         gretelCooked = true;
-        FinishGame();
+        //FinishGame();
     }
 
     public void cookHansel()
     {
         hanselCooked = true;
-        FinishGame();
+        //FinishGame();
     }
 
     private void FinishGame()
     {
-        if (hanselCooked && gretelCooked)
-        {
-            //Move to next Level?
-            print("End conditions met!");
-            ResetLevel();
-        }
+        print("End conditions met!");
+        ResetLevel();
     }
 
     private void ResetLevel()
@@ -105,5 +111,47 @@ public class GameMananger : MonoBehaviour
     private void MoveToNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void RegisterCandy(Candy.CandyColor color)
+    {
+        print("Registering candy of color " + color);
+        //Add in the correct count
+        for (int i = 0; i < winConditions.Length; i++)
+        {
+            Colorscore score = winConditions[i];
+            if (score.colorNeeded == color)
+            {
+                score.amountHad = score.amountHad + 1;
+                winConditions[i] = score;
+            }
+        }
+
+        if (canWeWin())
+        {
+            FinishGame();
+        }
+    }
+
+    private bool canWeWin()
+    {
+        print("Checking win conditions:");
+        bool win = true;
+        for (int i = 0; i < winConditions.Length; i++)
+        {
+            Colorscore score = winConditions[i];
+            print("Checking item " + i + ": " + score.colorNeeded);
+            if (score.amountHad < score.amountNeeded)
+            {
+                print("This one was not good enough.");
+                win = false;
+            }
+            else
+            {
+                print("This one was good enought.");
+            }
+        }
+
+        return win;
     }
 }
