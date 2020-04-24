@@ -9,6 +9,9 @@ public class ChildControl : MonoBehaviour
 
     [SerializeField] private float spawnDelay = 5f;
     [SerializeField] private Vector3 spawnPosition;
+    
+    [SerializeField] private GameObject hanselPrefab;
+    [SerializeField] private GameObject gretelPrefab;
 
     [SerializeField] private GameObject[] childrenToSpawn;
 
@@ -16,6 +19,8 @@ public class ChildControl : MonoBehaviour
     private bool hgActive = false;
     private GameObject Hansel;
     private GameObject Gretel;
+
+    
     
     //These variables generate a singleton for me
     private static ChildControl Instance;
@@ -111,17 +116,17 @@ public class ChildControl : MonoBehaviour
 
     public void SpawnChild()
     {
-        int index = Random.Range(0, childrenToSpawn.Length);
+        int index = Random.Range(0, childrenToSpawn.Length + 1);
         if (hgActive)
         {
 
-            while (index == childrenToSpawn.Length - 1)
+            while (index == childrenToSpawn.Length)
             {
                 index = Random.Range(0, childrenToSpawn.Length);
             }
         }
 
-        if (index != childrenToSpawn.Length - 1)
+        if (index != childrenToSpawn.Length)
         {
             GameObject childToSpawn = childrenToSpawn[index];
             GameObject child = Instantiate(childToSpawn, spawnPosition, Quaternion.identity);
@@ -129,12 +134,28 @@ public class ChildControl : MonoBehaviour
         }
         else
         {
-            GameObject childPrefab = childrenToSpawn[index];
-            Hansel = Instantiate(childPrefab, spawnPosition, Quaternion.identity);
-            Gretel = Instantiate(childPrefab, spawnPosition, Quaternion.identity);
-            children.Add(Hansel);
-            children.Add(Gretel);
-            hgActive = true;
+            if (!GameMananger.instance.gretelCooked)
+            {
+                Gretel = Instantiate(gretelPrefab, spawnPosition, Quaternion.identity);
+                Gretel.name = "Gretel";
+                children.Add(Gretel);
+            }
+
+            if (!GameMananger.instance.hanselCooked)
+            {
+                Hansel = Instantiate(hanselPrefab, spawnPosition, Quaternion.identity);
+                Hansel.name = "Hansel";
+                children.Add(Hansel);
+            }
+
+
+
+
+            if (Hansel || Gretel)
+            {
+                hgActive = true;
+            }
+
         }
     }
 

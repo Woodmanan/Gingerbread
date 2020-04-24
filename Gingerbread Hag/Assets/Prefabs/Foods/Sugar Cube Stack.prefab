@@ -1411,7 +1411,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174245f34658c6e4689335d033474c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRecipes: []
+  myRecipes:
+  - requires: 3
+    durationOfCooking: 3
+    becomes: {fileID: 3328377043019641576, guid: 14d0c6764a1773d4b97085b84ba9c6f2,
+      type: 3}
   combinedRecipes:
   - mixedWith: 0
     creates: {fileID: 2347826834516448135, guid: 76e0e7ed41494f348a05544076111bd8,

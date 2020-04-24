@@ -10,7 +10,8 @@ public class Cooking : MonoBehaviour
     {
         Baking,
         Boiling,
-        Frying
+        Frying,
+        Chopping
     }
 
     [SerializeField] private cooktype performedAction;

@@ -14,6 +14,11 @@ public class ObjectPickup : MonoBehaviour
     
     [SerializeField] private bool gridLogicActive;
 
+    [SerializeField] private Vector3 HoldingOffset;
+    private GameObject holdDisplay;
+    private MeshFilter displayMesh;
+    private MeshRenderer displayRender;
+
     public AudioClip pickupSFX;
 
     public AudioClip placeSFX;
@@ -64,6 +69,7 @@ public class ObjectPickup : MonoBehaviour
                     {
                         held.SetActive(true);
                         held = null;
+                        Destroy(holdDisplay);
                     }
                     else
                     {
@@ -79,7 +85,9 @@ public class ObjectPickup : MonoBehaviour
                     {
                         GetComponent<AudioSource>().PlayOneShot(pickupSFX);
                         //Halt, because the children are currently the ones who signal use
-                        held = child;
+                        Pickup(child);
+
+                        GetComponent<AudioSource>().PlayOneShot(pickupSFX);
                         //Child currently doesn't do anything once picked up, so we disable it
                         ChildBeta childComp = child.GetComponent<ChildBeta>();
                         childComp.GetGrabbed();
@@ -96,7 +104,13 @@ public class ObjectPickup : MonoBehaviour
                     else
                     {
                         //No child found, check pick up a game object instead
-                        held = ObjectPlacement.instance.PickUp(inFront);
+                        GameObject found = ObjectPlacement.instance.PickUp(inFront);
+                        if (found)
+                        {
+                            Pickup(found);
+                        }
+                        
+                        
                         if (held)
                         {
                             GetComponent<AudioSource>().PlayOneShot(pickupSFX);
@@ -132,6 +146,9 @@ public class ObjectPickup : MonoBehaviour
         Gizmos.color = Color.white;
         inFront = transform.position + transform.forward * pickupDistance;
         Gizmos.DrawWireSphere(inFront, .3f);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + HoldingOffset, .1f);
     }
     
     public KeyCode GetKey()
@@ -147,5 +164,30 @@ public class ObjectPickup : MonoBehaviour
     public bool GetHoldingChild()
     {
         return holdingChild;
+    }
+
+    private void Pickup(GameObject obj)
+    {
+        held = obj;
+        holdDisplay = Instantiate(obj);
+
+        //Hardcode to kill things that must die
+        //I am very sorry Chileshe, I tried the clean way and Unity did not like it
+        ChildBeta c = holdDisplay.GetComponentInChildren<ChildBeta>();
+        if (c)
+        {
+            c.enabled = false;
+        }
+
+        Collider collider = holdDisplay.GetComponentInChildren<Collider>();
+        if (collider)
+        {
+            Destroy(collider);
+        }
+        
+        holdDisplay.transform.parent = transform;
+        holdDisplay.transform.localPosition = HoldingOffset;
+
+
     }
 }
