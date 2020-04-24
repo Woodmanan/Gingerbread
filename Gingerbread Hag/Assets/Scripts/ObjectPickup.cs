@@ -184,6 +184,13 @@ public class ObjectPickup : MonoBehaviour
         {
             Destroy(collider);
         }
+
+
+        Candy candy = holdDisplay.GetComponentInChildren<Candy>();
+        if (candy)
+        {
+            Destroy(candy);
+        }
         
         holdDisplay.transform.parent = transform;
         holdDisplay.transform.localPosition = HoldingOffset;
