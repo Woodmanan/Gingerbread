@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da1dfde89731f7848802a47d566052a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cackle: {fileID: 8300000, guid: f914cfdace6f140d1ae57bd0df087d6c, type: 3}
   HorizontalAxis: Horizontal
   VerticalAxis: Vertical
   SprintKey: 304
