@@ -169,7 +169,6 @@ public class Recipebook : MonoBehaviour
             RawImage result = firstTree.transform.GetChild(3).GetComponent<RawImage>();
             result.texture = GetTexture(recipes[recipeName][3]);
 
-            Debug.Log(recipes[recipeName][3]);
 
         }
 
