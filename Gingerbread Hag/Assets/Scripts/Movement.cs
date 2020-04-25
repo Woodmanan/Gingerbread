@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
         
         
         Vector3 movement = new Vector3(inputDir.x, rig.velocity.y, inputDir.y) * speed;
-        if (Input.GetKey(SprintKey))
+        if (Input.GetKeyDown(SprintKey))
         {
             if (!GetComponent<AudioSource>().isPlaying)
             {

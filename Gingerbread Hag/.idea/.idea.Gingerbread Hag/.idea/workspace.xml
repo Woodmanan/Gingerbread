@@ -12,22 +12,15 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Movement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/DestroyChildren.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/pathNode.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ChildControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlaceSelf.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameMananger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CuttingBoard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Refill.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/71/31e44833/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/GameMananger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/HGFood.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ChildPoint.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/FollowPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cooking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -37,7 +30,6 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Oven.cs" />
         <option value="$PROJECT_DIR$/Assets/Ingredient.cs" />
         <option value="$PROJECT_DIR$/Assets/PickupOverride.cs" />
@@ -57,12 +49,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/HGFood.cs" />
-        <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/CuttingBoard.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
-        <option value="$PROJECT_DIR$/Assets/GameMananger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
+        <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameMananger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameMananger.cs" />
       </list>
     </option>
   </component>
@@ -129,6 +123,7 @@
       <workItem from="1587684682547" duration="2645000" />
       <workItem from="1587687665540" duration="6667000" />
       <workItem from="1587695967109" duration="1872000" />
+      <workItem from="1587698011940" duration="2255000" />
     </task>
     <servers />
   </component>
