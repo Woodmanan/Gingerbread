@@ -379,10 +379,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea0246c6f5972f4fa4a7c39c7223860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apple: {fileID: 2800000, guid: 4aad84ff0ee910147a89a65285affa9d, type: 3}
-  orange: {fileID: 2800000, guid: 2f8d0be701ac0c348b745e4fef38a4c6, type: 3}
-  pot: {fileID: 2800000, guid: 46dbc7b743212a040ba71bc697553188, type: 3}
-  stove: {fileID: 2800000, guid: fbbf722c93a9eac458af9e7d1b3f7910, type: 3}
+  Candyapple: {fileID: 2800000, guid: 1deecf49abb21a04382a3be0daea991f, type: 3}
+  Cubes: {fileID: 2800000, guid: a09c3f0a46e4ba345a24015a7c207480, type: 3}
+  Pot: {fileID: 2800000, guid: 01df0e90acf475e4eb7fd45aa47d5f13, type: 3}
+  Cauldron: {fileID: 2800000, guid: 2f7e93e6fe40e964ab41b36ec5898a39, type: 3}
+  Hanselplate: {fileID: 2800000, guid: fa9ec13a5fcdacb41a14bc897ad34129, type: 3}
+  Gretelplate: {fileID: 2800000, guid: b7b62c719d93a054eafc99b8759fc5a4, type: 3}
+  Sweets: {fileID: 2800000, guid: 07b4046aa9fe7004c889cc607d14734f, type: 3}
+  Tart: {fileID: 2800000, guid: e4ba28d8ffd5bd94b941e47461029f86, type: 3}
+  Pie: {fileID: 2800000, guid: 2a09cb67b499c5b47ac3126a34e67186, type: 3}
+  Flour: {fileID: 2800000, guid: 94c0765f9d299c14a8912d68f21d332e, type: 3}
+  Sorbet: {fileID: 2800000, guid: 72bf92e6cb453c741bdd295d54053132, type: 3}
+  Sugarcane: {fileID: 2800000, guid: 5a66df26cb8b15f47b5a63ba6a1b9e97, type: 3}
 --- !u!1 &6533176983023971680
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +597,7 @@ RectTransform:
   - {fileID: 6533176983871147396}
   - {fileID: 6533176984429251316}
   m_Father: {fileID: 6533176983662642871}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -836,7 +844,6 @@ RectTransform:
   m_LocalScale: {x: 2.0513, y: 2.0513, z: 2.0513}
   m_Children:
   - {fileID: 6533176982773121878}
-  - {fileID: 6533176983875891931}
   - {fileID: 6533176983491463646}
   m_Father: {fileID: 6533176983003492594}
   m_RootOrder: 0
@@ -920,7 +927,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 6533176983662642869}
   m_Template: {fileID: 6533176983491463646}
   m_CaptionText: {fileID: 6533176982773121877}
@@ -1309,79 +1316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
---- !u!1 &6533176983875891924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6533176983875891931}
-  - component: {fileID: 6533176983875891929}
-  - component: {fileID: 6533176983875891930}
-  m_Layer: 0
-  m_Name: Arrow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6533176983875891931
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6533176983875891924}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6533176983662642871}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6533176983875891929
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6533176983875891924}
-  m_CullTransparentMesh: 0
---- !u!114 &6533176983875891930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6533176983875891924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6533176983882878171
 GameObject:
   m_ObjectHideFlags: 0

@@ -1534,6 +1534,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6533176983003492593, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: Candyapple
+      value: 
+      objectReference: {fileID: 2800000, guid: 1deecf49abb21a04382a3be0daea991f, type: 3}
+    - target: {fileID: 6533176983023971687, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6533176983682928987, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6533176984494349800, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_LocalPosition.x
