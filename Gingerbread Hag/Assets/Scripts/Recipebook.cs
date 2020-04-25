@@ -39,7 +39,7 @@ public class Recipebook : MonoBehaviour
 
         AddRecipe("Sugar", "Flour", "Pot", "Pie"); //two ingredients with mixing instructions and result
         AddRecipe("Sugarcane", "none", "Pot", "Sugar"); // 1 ingredient with cooking instructions and result
-
+        AddRecipe("Tart", "Sweets", "Cauldron", "Sorbet");
         currentRecipe = "Pie";
 
         DisplayRecipe(currentRecipe);
