@@ -8,37 +8,79 @@ public class Recipebook : MonoBehaviour
     // Start is called before the first frame update
 
     Dictionary<string, List<string>> recipes;
+
     Dropdown dropdown;
     string currentRecipe;
-   
 
-    public Texture  apple;
-    public Texture orange;
-    public Texture pot;
-    public Texture stove;
+
+
+    public Texture Candyapple;
+    public Texture Cubes;
+    public Texture Pot;
+    public Texture Cauldron;
+    public Texture Hanselplate;
+    public Texture Gretelplate;
+    public Texture Sweets;
+    public Texture Tart;
+    public Texture Pie;
+    public Texture Flour;
+    public Texture Sorbet;
+    public Texture Sugarcane;
     
     void Start()
     {
         recipes = new Dictionary<string, List<string>>();
         dropdown = transform.GetChild(0).GetComponent<Dropdown>();
-
         dropdown.onValueChanged.AddListener(delegate {
             DropDownValueChanged();
         });
-
         dropdown.value = 0;
-
         //  AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
 
-        AddRecipe("Apple", "Apple", "Stove", "Apple"); //two ingredients with mixing instructions and result
-        AddRecipe("Orange", "none", "Pot", "Orange"); // 1 ingredient with cooking instructions and result
-
-        currentRecipe = "Apple";
+        AddRecipe("Sugar", "Flour", "Pot", "Pie"); //two ingredients with mixing instructions and result
+        AddRecipe("Sugarcane", "none", "Pot", "Sugar"); // 1 ingredient with cooking instructions and result
+        AddRecipe("Tart", "Sweets", "Cauldron", "Sorbet");
+        currentRecipe = "Pie";
 
         DisplayRecipe(currentRecipe);
 
 
     }
+    private Texture GetTexture(string textureName)
+    {
+        switch(textureName)
+        {
+            case "Candyapple":
+                return Candyapple;
+            case "Sugar":
+                return Cubes;
+            case "Sugarcane":
+                return Sugarcane;
+            case "Cauldron":
+                return Cauldron;
+            case "Sorbet":
+                return Sorbet;
+            case "Pot":
+                return Pot;
+            case "Hanselplate":
+                return Hanselplate;
+            case "Gretelplate":
+                return Gretelplate;
+            case "Flour":
+                return Flour;
+            case "Pie":
+                return Pie;
+            case "Tart":
+                return Tart;
+            case "Sweets":
+                return Sweets;
+
+        }
+
+        return null;
+
+    }
+
 
     public void AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
     {
@@ -62,7 +104,22 @@ public class Recipebook : MonoBehaviour
         dropdown.AddOptions(recipenames);
     }
 
-    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            int len = dropdown.options.Count;
+            
+            if (dropdown.value < len - 1)
+            {
+                dropdown.value += 1;
+            }
+            else
+            {
+                dropdown.value = 0;
+            }
+        }
+    }
 
     private void DisplayRecipe(string recipeName)
     {
@@ -112,36 +169,11 @@ public class Recipebook : MonoBehaviour
             RawImage result = firstTree.transform.GetChild(3).GetComponent<RawImage>();
             result.texture = GetTexture(recipes[recipeName][3]);
 
-            Debug.Log(recipes[recipeName][3]);
 
         }
 
     }
 
-    private Texture GetTexture(string name)
-    {
-
-        if (name == "Apple")
-        {
-            return apple;
-        }
-        else if(name == "Orange")
-        {
-            return orange;
-        }
-        else if(name == "Pot")
-        {
-            return pot;
-        }
-        else if(name == "Stove")
-        {
-            return stove;
-        }
-
-        return null;
-
-
-    }
     
     void DropDownValueChanged()
     {
