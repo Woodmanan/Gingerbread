@@ -31,6 +31,7 @@ public class CuttingBoard : MonoBehaviour
     {
         if (!chopping && readyToChop && Input.GetKeyDown(choppingKey))
         {
+            print("Starting chop!");
             StartChop();
         }
         else if (chopping && Input.GetKey(choppingKey))
@@ -56,6 +57,7 @@ public class CuttingBoard : MonoBehaviour
 
     public void GetObject(GameObject obj)
     {
+        print("Object got!");
         held = obj;
         ingredient = held.GetComponent<Ingredient>();
         if (ingredient)
