@@ -304,6 +304,162 @@ RectTransform:
   m_AnchoredPosition: {x: 36, y: -0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2222532648800492256
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 302763525360254442}
+  - component: {fileID: 2459346502868923683}
+  - component: {fileID: 2467408147068990115}
+  m_Layer: 0
+  m_Name: Timer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &302763525360254442
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222532648800492256}
+  m_LocalRotation: {x: -0.000000029802315, y: -0.09379995, z: -0, w: 0.9955911}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6533176983023971687}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -10.765, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -18, y: -223}
+  m_SizeDelta: {x: 517.5, y: 67}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2459346502868923683
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222532648800492256}
+  m_CullTransparentMesh: 0
+--- !u!114 &2467408147068990115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2222532648800492256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'Witch: Only the purple recipes are good enough to attract Hansel and Gretel.'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: f979adc65689c43ec86088241b1c1fc8, type: 2}
+  m_sharedMaterial: {fileID: 2806452814625710317, guid: f979adc65689c43ec86088241b1c1fc8,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278255613
+  m_fontColor: {r: 0.99381745, g: 1, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 16
+  m_fontSizeBase: 16
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 258
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: -1.7104712, w: 27.856205}
+  m_textInfo:
+    textComponent: {fileID: 2467408147068990115}
+    characterCount: 76
+    spriteCount: 0
+    spaceCount: 12
+    wordCount: 13
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2563649698827106457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,18 +1228,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea0246c6f5972f4fa4a7c39c7223860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Candyapple: {fileID: 2800000, guid: 1deecf49abb21a04382a3be0daea991f, type: 3}
-  Cubes: {fileID: 2800000, guid: a09c3f0a46e4ba345a24015a7c207480, type: 3}
-  Pot: {fileID: 2800000, guid: 01df0e90acf475e4eb7fd45aa47d5f13, type: 3}
-  Cauldron: {fileID: 2800000, guid: 2f7e93e6fe40e964ab41b36ec5898a39, type: 3}
-  Hanselplate: {fileID: 2800000, guid: fa9ec13a5fcdacb41a14bc897ad34129, type: 3}
-  Gretelplate: {fileID: 2800000, guid: b7b62c719d93a054eafc99b8759fc5a4, type: 3}
-  Sweets: {fileID: 2800000, guid: 07b4046aa9fe7004c889cc607d14734f, type: 3}
-  Tart: {fileID: 2800000, guid: e4ba28d8ffd5bd94b941e47461029f86, type: 3}
-  Pie: {fileID: 2800000, guid: 2a09cb67b499c5b47ac3126a34e67186, type: 3}
-  Flour: {fileID: 2800000, guid: 94c0765f9d299c14a8912d68f21d332e, type: 3}
-  Sorbet: {fileID: 2800000, guid: 72bf92e6cb453c741bdd295d54053132, type: 3}
-  Sugarcane: {fileID: 2800000, guid: 5a66df26cb8b15f47b5a63ba6a1b9e97, type: 3}
+  Knife: {fileID: 2800000, guid: 4981c1bca81aa534c85ddc5c0d0dce6d, type: 3}
+  Cake: {fileID: 2800000, guid: e3a8eb5ae5796bb468e74d4da5fb4d9c, type: 3}
+  Candyapple: {fileID: 2800000, guid: d89164b460afa71489d418dedb3dd947, type: 3}
+  Cubes: {fileID: 2800000, guid: 4a982b965614c344e9138d700f3dee73, type: 3}
+  Pot: {fileID: 2800000, guid: bf1b69f2ee906c545a9e8253b6f09510, type: 3}
+  Cauldron: {fileID: 2800000, guid: 8ca81ddd6def8994c90477ed823938d0, type: 3}
+  Hanselplate: {fileID: 2800000, guid: f112a627ac01ed145bd54a2e2a2f1438, type: 3}
+  Gretelplate: {fileID: 2800000, guid: acde28276771a7e448a24f396f63bc9d, type: 3}
+  Sweets: {fileID: 2800000, guid: 300f4e33b6405264bb448b6e52b374bf, type: 3}
+  Tart: {fileID: 2800000, guid: 86680bfcac0b9404ebc4aa9c453601b9, type: 3}
+  Pie: {fileID: 2800000, guid: d8d1f15b50709b245a2f77990160adfd, type: 3}
+  Flour: {fileID: 2800000, guid: 851c45a1cd3cf0c4bb4fee1604991ae3, type: 3}
+  Sorbet: {fileID: 2800000, guid: 716486068dd14af44abeb7efea84a311, type: 3}
+  Sugarcane: {fileID: 2800000, guid: 2dde45671c75db540801259040ba3dbb, type: 3}
+  Orange: {fileID: 2800000, guid: e21ad149a85d22442b681d8290ae9158, type: 3}
+  Blue: {fileID: 2800000, guid: cfb95b831eca6b549aecf48d1e33d287, type: 3}
+  Purple: {fileID: 2800000, guid: b1f8899ae05a11142969d44cbc7c4633, type: 3}
+  Red: {fileID: 2800000, guid: 9469d9a140af5a14d9d367eb0f5f1d36, type: 3}
+  Yellow: {fileID: 2800000, guid: 78f504eacf8dee04babab43307560778, type: 3}
+  Green: {fileID: 2800000, guid: c469cf5c87c609c4f9a9fc141b487ea9, type: 3}
+  OrangeKid: {fileID: 2800000, guid: a1fa35e3be340a84ca94191afa59ff9b, type: 3}
+  BlueKid: {fileID: 2800000, guid: 9b3653ea5f0394542b6c466fac76d0c4, type: 3}
+  PurpleKid: {fileID: 2800000, guid: d7256a014aa82bc45850828514c7b387, type: 3}
+  RedKid: {fileID: 2800000, guid: d2a8d51b3f31014469553ddf26da3d10, type: 3}
+  YellowKid: {fileID: 2800000, guid: 2ccec1d8e70ac6f4395d76d8109c6fbe, type: 3}
+  GreenKid: {fileID: 2800000, guid: 79c532a6486c1094abd060c25dff1ed0, type: 3}
 --- !u!1 &6533176983023971680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,6 +1287,7 @@ RectTransform:
   - {fileID: 6533176983003492594}
   - {fileID: 6533176984763700674}
   - {fileID: 878866114753176005}
+  - {fileID: 302763525360254442}
   m_Father: {fileID: 6533176984494349800}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3248,7 +3419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -271, y: 54}
+  m_AnchoredPosition: {x: -253, y: 54}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7648319835783897708
@@ -3277,8 +3448,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "[\u2191\u2193\u2192 \u2190] Movement\n            [T] View Recipes\n           
-    [P] Pause\n\n"
+  m_text: "[\u2191\u2193\u2192 \u2190] Movement\n [R and T] View Recipes\n[Spacebar]
+    Pick Up & Put Down\n           \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f979adc65689c43ec86088241b1c1fc8, type: 2}
   m_sharedMaterial: {fileID: 2806452814625710317, guid: f979adc65689c43ec86088241b1c1fc8,
@@ -3324,7 +3495,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 68
+  m_firstOverflowCharacterIndex: 71
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3348,12 +3519,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5426349523820894680}
-    characterCount: 69
+    characterCount: 84
     spriteCount: 0
-    spaceCount: 33
-    wordCount: 6
+    spaceCount: 28
+    wordCount: 11
     linkCount: 0
-    lineCount: 4
+    lineCount: 5
     pageCount: 1
     materialCount: 2
   m_isUsingLegacyAnimationComponent: 0
@@ -3435,7 +3606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 75ab44e983a17e6488429c08676c46f8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
