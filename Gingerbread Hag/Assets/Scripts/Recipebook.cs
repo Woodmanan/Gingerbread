@@ -50,22 +50,22 @@ public class Recipebook : MonoBehaviour
         dropdown.value = 0;
         //  AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
 
-        AddRecipe("Sugarcane", "none", "Knife", "Sugar");
+        AddRecipe("Sugarcane", "none", "Oven", "Sugar");
         AddRecipe("Flour", "Sugar", "Oven", "Candyapple");
 
-        AddRecipe("RedKid","Sugar", "Cauldron", "Red Dough");
+        AddRecipe("RedKid","Sugar", "Oven", "Red Dough");
         AddRecipe("Red Dough", "none", "Oven", "Pie");
 
-        AddRecipe("OrangeKid", "Flour", "Cauldron", "Orange Dough");
+        AddRecipe("OrangeKid", "Flour", "Oven", "Orange Dough");
         AddRecipe("Orange Dough", "none", "Oven", "Tart");
 
-        AddRecipe("YellowKid", "Sugar", "Cauldron", "Yellow Dough");
+        AddRecipe("YellowKid", "Sugar", "Oven", "Yellow Dough");
         AddRecipe("Yellow Dough", "none", "Oven", "Sweets");
 
-        AddRecipe("GreenKid", "Flour", "Cauldron", "Green Dough");
+        AddRecipe("GreenKid", "Flour", "Oven", "Green Dough");
         AddRecipe("Green Dough", "none", "Oven", "Sorbet");
 
-        AddRecipe("BlueKid", "Sugar", "Cauldron", "Blue Dough");
+        AddRecipe("BlueKid", "Sugar", "Oven", "Blue Dough");
         AddRecipe("Blue Dough", "none", "Oven", "Cake");
 
         AddRecipe("PurpleKid", "none", "Oven", "Hanselcookie");
