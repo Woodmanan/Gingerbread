@@ -12,8 +12,8 @@ public class Recipebook : MonoBehaviour
     Dropdown dropdown;
     string currentRecipe;
 
-
-
+    public Texture Knife;
+    public Texture Cake;
     public Texture Candyapple;
     public Texture Cubes;
     public Texture Pot;
@@ -26,7 +26,20 @@ public class Recipebook : MonoBehaviour
     public Texture Flour;
     public Texture Sorbet;
     public Texture Sugarcane;
-    
+    public Texture Orange;
+    public Texture Blue;
+    public Texture Purple;
+    public Texture Red;
+    public Texture Yellow;
+    public Texture Green;
+    public Texture OrangeKid;
+    public Texture BlueKid;
+    public Texture PurpleKid;
+    public Texture RedKid;
+    public Texture YellowKid;
+    public Texture GreenKid;
+
+
     void Start()
     {
         recipes = new Dictionary<string, List<string>>();
@@ -37,10 +50,30 @@ public class Recipebook : MonoBehaviour
         dropdown.value = 0;
         //  AddRecipe(string firstIngredient, string secondIngredient, string process, string result)
 
-        AddRecipe("Sugar", "Flour", "Pot", "Pie"); //two ingredients with mixing instructions and result
-        AddRecipe("Sugarcane", "none", "Pot", "Sugar"); // 1 ingredient with cooking instructions and result
-        AddRecipe("Tart", "Sweets", "Cauldron", "Sorbet");
-        currentRecipe = "Pie";
+        AddRecipe("Sugarcane", "none", "Knife", "Sugar");
+        AddRecipe("Flour", "Sugar", "Oven", "Candyapple");
+
+        AddRecipe("RedKid","Sugar", "Cauldron", "Red Dough");
+        AddRecipe("Red Dough", "none", "Oven", "Pie");
+
+        AddRecipe("OrangeKid", "Flour", "Cauldron", "Orange Dough");
+        AddRecipe("Orange Dough", "none", "Oven", "Tart");
+
+        AddRecipe("YellowKid", "Sugar", "Cauldron", "Yellow Dough");
+        AddRecipe("Yellow Dough", "none", "Oven", "Sweets");
+
+        AddRecipe("GreenKid", "Flour", "Cauldron", "Green Dough");
+        AddRecipe("Green Dough", "none", "Oven", "Sorbet");
+
+        AddRecipe("BlueKid", "Sugar", "Cauldron", "Blue Dough");
+        AddRecipe("Blue Dough", "none", "Oven", "Cake");
+
+        AddRecipe("PurpleKid", "none", "Oven", "Hanselcookie");
+
+        AddRecipe("PurpleKid", "none", "Oven", "Gretelcookie");
+
+
+        currentRecipe = "Sugar";
 
         DisplayRecipe(currentRecipe);
 
@@ -50,6 +83,8 @@ public class Recipebook : MonoBehaviour
     {
         switch(textureName)
         {
+            case "Knife":
+                return Knife;
             case "Candyapple":
                 return Candyapple;
             case "Sugar":
@@ -60,11 +95,11 @@ public class Recipebook : MonoBehaviour
                 return Cauldron;
             case "Sorbet":
                 return Sorbet;
-            case "Pot":
+            case "Oven":
                 return Pot;
-            case "Hanselplate":
+            case "Hanselcookie":
                 return Hanselplate;
-            case "Gretelplate":
+            case "Gretelcookie":
                 return Gretelplate;
             case "Flour":
                 return Flour;
@@ -74,6 +109,33 @@ public class Recipebook : MonoBehaviour
                 return Tart;
             case "Sweets":
                 return Sweets;
+            case "Orange Dough":
+                return Orange;
+            case "Purple Dough":
+                return Purple;
+            case "Blue Dough":
+                return Blue;
+            case "Yellow Dough":
+                return Yellow;
+            case "Red Dough":
+                return Red;
+            case "Green Dough":
+                return Green;
+            case "OrangeKid":
+                return OrangeKid;
+            case "PurpleKid":
+                return PurpleKid;
+            case "BlueKid":
+                return BlueKid;
+            case "YellowKid":
+                return YellowKid;
+            case "RedKid":
+                return RedKid;
+            case "GreenKid":
+                return GreenKid;
+            case "Cake":
+                return Cake;
+
 
         }
 
@@ -106,6 +168,19 @@ public class Recipebook : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            int len = dropdown.options.Count;
+
+            if (dropdown.value > 0)
+            {
+                dropdown.value -= 1;
+            }
+            else
+            {
+                dropdown.value = len-1;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.T))
         {
             int len = dropdown.options.Count;
