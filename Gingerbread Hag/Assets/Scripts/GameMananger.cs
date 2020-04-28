@@ -80,7 +80,7 @@ public class GameMananger : MonoBehaviour
             if (runtime < 0)
             {
                 //TODO: End game!
-                ResetLevel();
+                MoveToNextLevel();
             }
         }
     }
