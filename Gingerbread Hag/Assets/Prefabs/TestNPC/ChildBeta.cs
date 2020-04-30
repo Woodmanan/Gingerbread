@@ -313,7 +313,7 @@ public class ChildBeta : MonoBehaviour
     //Function that ties up loose ends within the child
     public void GetGrabbed()
     {
-        Destroy(transform.GetComponent<NavMeshAgent>());
+        transform.GetComponent<NavMeshAgent>().enabled = false;
         Candy currentCandy = currentGoal.GetComponent<Candy>();
         if (currentCandy)
         {
@@ -321,6 +321,15 @@ public class ChildBeta : MonoBehaviour
         }
         particles.Stop();
         GetComponent<AudioSource>().Stop();
+    }
+
+    public void StopGrab()
+    {
+        //Reset Everything!!
+        isHeld = false;
+        gettingCandy = false;
+        hasCandy = false;
+        //SetDestination();
     }
 
     //Should we be allowed to grab this child?

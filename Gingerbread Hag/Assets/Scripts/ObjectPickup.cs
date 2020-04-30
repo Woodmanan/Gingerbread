@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ObjectPickup : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class ObjectPickup : MonoBehaviour
     public AudioClip placeSFX;
 
     public bool holdingChild;
+
+    [SerializeField] float dropDist;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,29 @@ public class ObjectPickup : MonoBehaviour
                 {
                     print("Location: " + transform.position);
                     GetComponent<AudioSource>().PlayOneShot(placeSFX);
+                    
+                    ChildBeta child = held.GetComponent<ChildBeta>();
+                    if (child)
+                    {
+                        //Holding a child! See if it needs to become free roaming
+                        NavMeshHit hit;
+                        if (NavMesh.SamplePosition(inFront, out hit, dropDist, NavMesh.AllAreas))
+                        {
+                            //Drop the child!
+                            print("Child is getting dropped into Navmesh!");
+                            held.transform.position = inFront;
+                            held.SetActive(true);
+                            held.GetComponent<NavMeshAgent>().enabled = true;
+                            held.GetComponent<BoxCollider>().enabled = true;
+                            child.enabled = true;
+                            child.StopGrab();
+                            held = null;
+                            print("Child has finished being dropped!");
+                            Destroy(holdDisplay);
+                            return;
+                        }
+                    }
+                    
                     //Attempt drop
                     if (ObjectPlacement.instance.Drop(held, inFront))
                     {
@@ -149,6 +175,8 @@ public class ObjectPickup : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + HoldingOffset, .1f);
+        Gizmos.color = Color.black;
+        Gizmos.DrawWireSphere(transform.position + HoldingOffset, dropDist);
     }
     
     public KeyCode GetKey()
@@ -203,6 +231,8 @@ public class ObjectPickup : MonoBehaviour
 
         print("Location: " + transform.position);
         GetComponent<AudioSource>().PlayOneShot(placeSFX);
+        
+        
         //Attempt drop
         if (ObjectPlacement.instance.Drop(held, inFront))
         {
