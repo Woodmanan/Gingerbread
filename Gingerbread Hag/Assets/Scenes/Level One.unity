@@ -2866,21 +2866,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1221234640}
     m_Modifications:
-    - target: {fileID: -4567839438708325298, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4567839438708325298, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f914cfdace6f140d1ae57bd0df087d6c, type: 3}
-    - target: {fileID: -4567839438708325298, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1367955820572587868, guid: 462c077bfa032504f901071f355fa294,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2940,26 +2925,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PrototypeWitch
-      objectReference: {fileID: 0}
-    - target: {fileID: 4801120102715356158, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 116
-      objectReference: {fileID: 0}
-    - target: {fileID: 5610438573375382218, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: pickupSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: df5270222287744a089d18e1153f28a4, type: 3}
-    - target: {fileID: 5610438573375382218, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: placeSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 1204fa0ddfdc347d891d88cbbfab320b, type: 3}
-    - target: {fileID: 5610438573375382218, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: HoldingOffset.z
-      value: 1.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 462c077bfa032504f901071f355fa294, type: 3}

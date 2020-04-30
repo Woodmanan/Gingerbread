@@ -16,12 +16,17 @@ public class Movement : MonoBehaviour
     [SerializeField] private float sprintModifier;
 
     private Rigidbody rig;
+    private ParticleSystem.EmissionModule emis;
+    private ParticleSystem.MainModule main;
     
     
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody>();
+        ParticleSystem particles = GetComponent<ParticleSystem>();
+        emis = particles.emission;
+        main = particles.main;
     }
 
     // Update is called once per frame
@@ -47,8 +52,17 @@ public class Movement : MonoBehaviour
             {
                 GetComponent<AudioSource>().PlayOneShot(cackle);
             }
-
+        }
+        if (Input.GetKey(SprintKey))
+        {
             movement = movement * sprintModifier;
+            emis.rateOverDistance = 10;
+            main.startColor = Color.magenta;
+        }
+        else
+        {
+            emis.rateOverDistance = 5;
+            main.startColor = Color.white;
         }
         rig.velocity = movement;
     }
