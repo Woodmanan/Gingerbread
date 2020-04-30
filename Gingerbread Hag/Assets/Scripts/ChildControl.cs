@@ -9,7 +9,6 @@ public class ChildControl : MonoBehaviour
     [SerializeField] int maxChildren = 5;
 
     [SerializeField] private float spawnDelay = 5f;
-    [SerializeField] private Vector3 spawnPosition;
     
     [SerializeField] private GameObject hanselPrefab;
     [SerializeField] private GameObject gretelPrefab;
@@ -139,21 +138,21 @@ public class ChildControl : MonoBehaviour
         if (index != childrenToSpawn.Length)
         {
             GameObject childToSpawn = childrenToSpawn[index];
-            GameObject child = Instantiate(childToSpawn, spawnPosition, Quaternion.identity);
+            GameObject child = Instantiate(childToSpawn, transform.position, Quaternion.identity);
             children.Add(child);
         }
         else
         {
             if (!GameMananger.instance.gretelCooked)
             {
-                Gretel = Instantiate(gretelPrefab, spawnPosition, Quaternion.identity);
+                Gretel = Instantiate(gretelPrefab, transform.position, Quaternion.identity);
                 Gretel.name = "Gretel";
                 children.Add(Gretel);
             }
 
             if (!GameMananger.instance.hanselCooked)
             {
-                Hansel = Instantiate(hanselPrefab, spawnPosition, Quaternion.identity);
+                Hansel = Instantiate(hanselPrefab, transform.position, Quaternion.identity);
                 Hansel.name = "Hansel";
                 children.Add(Hansel);
             }

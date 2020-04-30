@@ -45,10 +45,15 @@ public class Cooking : MonoBehaviour
                 //Make the new one!
                 GameObject next = ingredient.FinishCooking(performedAction);
                 //Move it to the next one!
-                ObjectPlacement.instance.Replace(transform.position, next);
                 Destroy(held);
+                ObjectPlacement.instance.Replace(transform.position, next);
+                
                 onFinishCooking.Invoke(next);
-                cookingParticles.Stop();
+                if (cookingParticles)
+                {
+                    cookingParticles.Stop();
+                }
+
                 StartCooking(next);
             }
         }
@@ -74,7 +79,10 @@ public class Cooking : MonoBehaviour
         if (isCooking)
         {
             print("We can cook it!");
-            cookingParticles.Play();
+            if (cookingParticles)
+            {
+                cookingParticles.Play();
+            }
         }
     }
 
@@ -83,6 +91,9 @@ public class Cooking : MonoBehaviour
         held = null;
         ingredient = null;
         isCooking = false;
-        cookingParticles.Stop();
+        if (cookingParticles)
+        {
+            cookingParticles.Stop();
+        }
     }
 }
