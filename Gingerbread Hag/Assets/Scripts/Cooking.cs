@@ -45,8 +45,9 @@ public class Cooking : MonoBehaviour
                 //Make the new one!
                 GameObject next = ingredient.FinishCooking(performedAction);
                 //Move it to the next one!
-                ObjectPlacement.instance.Replace(transform.position, next);
                 Destroy(held);
+                ObjectPlacement.instance.Replace(transform.position, next);
+                
                 onFinishCooking.Invoke(next);
                 if (cookingParticles)
                 {
