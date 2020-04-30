@@ -197,4 +197,25 @@ public class ObjectPickup : MonoBehaviour
 
 
     }
+
+    public void DropHeld()
+    {
+
+        print("Location: " + transform.position);
+        GetComponent<AudioSource>().PlayOneShot(placeSFX);
+        //Attempt drop
+        if (ObjectPlacement.instance.Drop(held, inFront))
+        {
+            held.SetActive(true);
+            held = null;
+            Destroy(holdDisplay);
+        }
+        else
+        {
+            print("Hwat. How has this happened.");
+        }
+
+
+
+    }
 }
