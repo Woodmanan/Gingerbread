@@ -246,6 +246,13 @@ public class ObjectPickup : MonoBehaviour
         }
 
 
+    }
 
+
+    public GameObject GetHeld()
+    {
+
+
+        return held;
     }
 }
