@@ -12,10 +12,13 @@ public class Arrows : MonoBehaviour
     GameObject child;
     bool reset = true;
     public GameObject childIcon;
+    private GameObject manager;
+
     void Start()
     {
 
         player = GameObject.FindGameObjectWithTag("Player");
+        manager = GameObject.FindGameObjectWithTag("GameController");
         
     }
 
@@ -33,9 +36,22 @@ public class Arrows : MonoBehaviour
 
     void resetIcons()
     {
-        GameObject[] children = GameObject.FindGameObjectsWithTag("Child");
-        
-        foreach(GameObject i in children)
+        int m = 0;
+        foreach (Transform child in transform.GetChild(2))
+        {
+            if (m > 0)
+            {
+                if (child.gameObject != null)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+            m += 1;
+        }
+
+        GameObject[] children = manager.GetComponent<ChildControl>().getChildren();
+
+        foreach (GameObject i in children)
         {
             GameObject newCompass = Instantiate(childIcon, transform.GetChild(2));
             newCompass.SetActive(true);
