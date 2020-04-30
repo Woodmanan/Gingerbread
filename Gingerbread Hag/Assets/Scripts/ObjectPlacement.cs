@@ -163,6 +163,16 @@ public class ObjectPlacement : MonoBehaviour
 
     private bool CanPlace(Vector3 position)
     {
+        Vector3 location = gridPosition(position);
+        PickupOverride over;
+        if (overrides.TryGetValue(location, out over))
+        {
+            if (!over.allowsDrop)
+            {
+                return false;
+            }
+        }
+
         return (!OnFloor(position));
     }
 

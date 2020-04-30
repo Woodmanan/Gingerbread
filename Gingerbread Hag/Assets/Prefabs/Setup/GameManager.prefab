@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1340234517951051547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340234517951051546}
+  - component: {fileID: 1340234517951051544}
+  - component: {fileID: 1340234517951051545}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340234517951051546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340234517951051547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -53.4, y: 0.5, z: 31.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1340234517951051544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340234517951051547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4053a2f3d5d6dde459e127e2169fe636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hanselCooked: 0
+  gretelCooked: 0
+  gameTimer: 180
+  text: {fileID: 0}
+  winConditions:
+  - colorNeeded: 2
+    amountNeeded: 3
+    amountHad: 0
+--- !u!114 &1340234517951051545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340234517951051547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8298de4ba9981a3449463b73e7ef565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnHAndG: 0
+  updateDelay: 3
+  maxChildren: 5
+  spawnDelay: 0.1
+  spawnPosition: {x: -53.4, y: 0.5, z: 31.92}
+  hanselPrefab: {fileID: 1209196487289548493, guid: a54e9db61754636448851faaf9d4bc9d,
+    type: 3}
+  gretelPrefab: {fileID: 1864798418539470720, guid: 842a362f3c70caf45bbe20c41ff70a2a,
+    type: 3}
+  childrenToSpawn:
+  - {fileID: 954406387893487934, guid: ad79e0ef15e4c8c47a745b7a882edb0f, type: 3}
+  - {fileID: 2783963623505861273, guid: 0381bf5aaefa2424db5f4bda456f7b64, type: 3}

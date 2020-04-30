@@ -16,6 +16,7 @@
     <explicitExcludes>
       <Path>.idea</Path>
       <Path>Alpha Build</Path>
+      <Path>Beta</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Playtest 4-21</Path>

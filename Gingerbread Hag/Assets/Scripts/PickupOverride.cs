@@ -11,6 +11,8 @@ public class PickupOverride : MonoBehaviour
     [SerializeField] private ObjectEvent OnPickup;
 
     [SerializeField] private UnityEvent OnDrop;
+
+    public bool allowsDrop = true;
     // Start is called before the first frame update
     void Start()
     {

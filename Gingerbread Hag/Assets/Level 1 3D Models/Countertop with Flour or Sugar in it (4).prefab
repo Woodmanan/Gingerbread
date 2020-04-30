@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2a35d2d96c94a42a7e1810f8e7152b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSpawn: {fileID: 5977060886652204314, guid: 1607411e6be711346a5e8f6b90571636, type: 3}
+  toSpawn: {fileID: 1375116048945792474, guid: d7fc2c0c52b71944ebfb2767c444198b, type: 3}
   respawnDelay: 2
 --- !u!1 &702669687261278592
 GameObject:

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
+    public AudioClip bakingSFX;
+
     [Serializable] public struct SingleRecipe
     {
         public Cooking.cooktype requires;
@@ -89,8 +91,13 @@ public class Ingredient : MonoBehaviour
         {
             if (s.requires == type)
             {
+
                 GameObject next = Instantiate(s.becomes);
                 next.transform.position = transform.position;
+                if (type == Cooking.cooktype.Baking)
+                {
+                    next.GetComponent<AudioSource>().PlayOneShot(bakingSFX);
+                }
                 return next;
             }
         }

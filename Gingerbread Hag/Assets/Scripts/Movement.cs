@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public AudioClip cackle;
     [Header("Input Variables")]
     [SerializeField] private string HorizontalAxis;
     [SerializeField] private string VerticalAxis; 
@@ -40,8 +41,13 @@ public class Movement : MonoBehaviour
         
         
         Vector3 movement = new Vector3(inputDir.x, rig.velocity.y, inputDir.y) * speed;
-        if (Input.GetKey(SprintKey))
+        if (Input.GetKeyDown(SprintKey))
         {
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().PlayOneShot(cackle);
+            }
+
             movement = movement * sprintModifier;
         }
         rig.velocity = movement;
