@@ -51,7 +51,7 @@ MonoBehaviour:
   OnDrop:
     m_PersistentCalls:
       m_Calls: []
-  allowsDrop: 1
+  allowsDrop: 0
 --- !u!65 &6879222568340998938
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@
           <e p="FollowPlayer.cs" t="Include" />
           <e p="GameMananger.cs" t="Include" />
           <e p="HGFood.cs" t="Include" />
+          <e p="Hunter.cs" t="Include" />
           <e p="Icon.cs" t="Include" />
           <e p="Ingredient.cs" t="Include" />
           <e p="MenuUI.cs" t="Include" />
