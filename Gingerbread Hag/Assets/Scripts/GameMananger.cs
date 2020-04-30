@@ -111,6 +111,12 @@ public class GameMananger : MonoBehaviour
 
     private void MoveToNextLevel()
     {
+        //Temp code
+        //TODO: REMOVE
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            SceneManager.LoadScene(0);
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
