@@ -16,6 +16,7 @@ public class Hunter : MonoBehaviour
     public int distanceFromGoal = 3;
     private int currentGoal = 0;
 
+    private int witchRange = 20;
     private bool attackWitch = false;
 
     void Start()
@@ -31,8 +32,8 @@ public class Hunter : MonoBehaviour
     void Update()
     {
        
-
-        if (!attackWitch)
+        
+        if (attackWitch == false)
         {
             if (currentGoal == 0)
             {
@@ -61,19 +62,29 @@ public class Hunter : MonoBehaviour
                 }
             }
         }
-
-        if (player.GetComponent<ObjectPickup>().GetHoldingChild() == true)
+        else
         {
-            attackWitch = true;
             _navMeshAgent.SetDestination(player.transform.position);
-
             if (Vector3.Distance(transform.position, player.transform.position) < 1)
             {
                 player.GetComponent<ObjectPickup>().DropHeld();
                 attackWitch = false;
             }
-
         }
+
+
+        if (player.GetComponent<ObjectPickup>().GetHeld() != null)
+        {
+             Debug.Log("I SHOULD BRUTULIZE THE WITCH"+ " "+ player.GetComponent<ObjectPickup>().GetHeld().tag);
+             attackWitch = true;
+            
+            
+        }
+            
+
+            
+
+       
 
 
     }
