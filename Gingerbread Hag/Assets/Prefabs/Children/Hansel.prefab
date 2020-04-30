@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b164deff30c088549a280367ecc648a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecognizedColors: 06000000
+  RecognizedColors: 05000000
   SearchingDelay: 2
 --- !u!54 &7177068377540306986
 Rigidbody:
@@ -164,7 +164,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174245f34658c6e4689335d033474c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRecipes: []
+  bakingSFX: {fileID: 0}
+  myRecipes:
+  - requires: 0
+    durationOfCooking: 0
+    becomes: {fileID: 0}
   combinedRecipes: []
 --- !u!198 &6277219184688507834
 ParticleSystem:

@@ -21,6 +21,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F38C71C8-6AA6-4E29-9D4C-EA9FB7C715E1/71/31e44833/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,15 +52,16 @@
         <option value="$PROJECT_DIR$/Assets/HGFood.cs" />
         <option value="$PROJECT_DIR$/Assets/CuttingBoard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
         <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/GameMananger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameMananger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CuttingBoard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameMananger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
       </list>
     </option>
   </component>
@@ -128,6 +130,12 @@
       <workItem from="1587695967109" duration="1872000" />
       <workItem from="1587698011940" duration="2255000" />
       <workItem from="1587946783830" duration="2444000" />
+      <workItem from="1588001965758" duration="715000" />
+      <workItem from="1588003561715" duration="1198000" />
+      <workItem from="1588085754636" duration="1595000" />
+      <workItem from="1588089141172" duration="48000" />
+      <workItem from="1588279647719" duration="208000" />
+      <workItem from="1588280268804" duration="2030000" />
     </task>
     <servers />
   </component>

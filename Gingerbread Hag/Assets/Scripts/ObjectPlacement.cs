@@ -220,6 +220,9 @@ public class ObjectPlacement : MonoBehaviour
     {
         Vector2 loc = gridPosition(position);
         GameObject outObj;
+        outObj = PickUp(position);
+        Drop(obj, position);
+        /*
         if (objects.TryGetValue(loc, out outObj))
         {
             //We have an object, so replace it
@@ -231,7 +234,7 @@ public class ObjectPlacement : MonoBehaviour
             Debug.LogError("Attempted to replace something at an empty spot!");
             //Add it? The caller seemed to want it here 
             objects.Add(loc, obj);
-        }
+        }*/
     }
 
     public bool ClearPoint(Vector3 position)
