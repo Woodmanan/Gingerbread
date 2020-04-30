@@ -54,7 +54,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/GameMananger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CuttingBoard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
@@ -62,6 +61,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
       </list>
     </option>
   </component>
@@ -135,7 +135,7 @@
       <workItem from="1588085754636" duration="1595000" />
       <workItem from="1588089141172" duration="48000" />
       <workItem from="1588279647719" duration="208000" />
-      <workItem from="1588280268804" duration="502000" />
+      <workItem from="1588280268804" duration="2030000" />
     </task>
     <servers />
   </component>
