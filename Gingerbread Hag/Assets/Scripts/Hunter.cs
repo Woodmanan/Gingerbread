@@ -65,7 +65,7 @@ public class Hunter : MonoBehaviour
         else
         {
             _navMeshAgent.SetDestination(player.transform.position);
-            if (Vector3.Distance(transform.position, player.transform.position) < 1)
+            if (Vector3.Distance(transform.position, player.transform.position) < 2)
             {
                 player.GetComponent<ObjectPickup>().DropHeld();
                 attackWitch = false;
@@ -75,10 +75,19 @@ public class Hunter : MonoBehaviour
 
         if (player.GetComponent<ObjectPickup>().GetHeld() != null)
         {
-             Debug.Log("I SHOULD BRUTULIZE THE WITCH"+ " "+ player.GetComponent<ObjectPickup>().GetHeld().tag);
-             attackWitch = true;
+            if (Vector3.Distance(transform.position, player.transform.position) < 10)
+            {
+
+
+                Debug.Log("I SHOULD BRUTULIZE THE WITCH" + " " + player.GetComponent<ObjectPickup>().GetHeld().tag);
+                attackWitch = true;
+            }
             
             
+        }
+        else
+        {
+            attackWitch = false;
         }
             
 
