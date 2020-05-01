@@ -313,7 +313,8 @@ public class ChildBeta : MonoBehaviour
     //Function that ties up loose ends within the child
     public void GetGrabbed()
     {
-        transform.GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
         Candy currentCandy = currentGoal.GetComponent<Candy>();
         if (currentCandy)
         {
