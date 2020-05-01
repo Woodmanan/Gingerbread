@@ -74,9 +74,13 @@ public class Hunter : MonoBehaviour
             }
         }
 
-
-        if (player.GetComponent<ObjectPickup>().GetHeld() != null)
+        GameObject held = player.GetComponent<ObjectPickup>().GetHeld();
+        if (held)
         {
+            if (held.GetComponent<ChildBeta>())
+            {
+                attackWitch = true;
+            }
             if (Vector3.Distance(transform.position, player.transform.position) < 10)
             {
                 if (!GetComponent<AudioSource>().isPlaying)
