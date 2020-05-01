@@ -6126,6 +6126,11 @@ PrefabInstance:
       propertyPath: m_textInfo.materialCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2731699913109485132, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3487151067552779524, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_Material
@@ -6164,32 +6169,43 @@ PrefabInstance:
     - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.materialCount
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_text
+      value: "[\u2191\u2193\u2192 \u2190] Movement\n    [ / ]         Cut \n [R and
+        T] View Recipes\n[Spacebar] Pick Up & Put Down\n           \n\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5426349523820894680, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 6533176983023971687, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
@@ -6255,6 +6271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698779978572278183, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7234336582474123717, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
