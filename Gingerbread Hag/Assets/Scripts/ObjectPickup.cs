@@ -19,6 +19,7 @@ public class ObjectPickup : MonoBehaviour
     private GameObject holdDisplay;
     private MeshFilter displayMesh;
     private MeshRenderer displayRender;
+    private Animator anim;
 
     public AudioClip pickupSFX;
 
@@ -30,7 +31,7 @@ public class ObjectPickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -86,6 +87,8 @@ public class ObjectPickup : MonoBehaviour
                             held = null;
                             print("Child has finished being dropped!");
                             Destroy(holdDisplay);
+                            anim.SetTrigger("Place");
+                            anim.SetBool("Holding", false);
                             return;
                         }
                     }
@@ -95,6 +98,8 @@ public class ObjectPickup : MonoBehaviour
                     {
                         held.SetActive(true);
                         held = null;
+                        anim.SetTrigger("Place");
+                        anim.SetBool("Holding", false);
                         Destroy(holdDisplay);
                     }
                     else
@@ -110,6 +115,7 @@ public class ObjectPickup : MonoBehaviour
                     if (child)
                     {
                         GetComponent<AudioSource>().PlayOneShot(pickupSFX);
+                        anim.SetTrigger("Grab");
                         //Halt, because the children are currently the ones who signal use
                         Pickup(child);
 
@@ -133,12 +139,14 @@ public class ObjectPickup : MonoBehaviour
                         GameObject found = ObjectPlacement.instance.PickUp(inFront);
                         if (found)
                         {
+                            anim.SetTrigger("PickUp");
                             Pickup(found);
                         }
                         
                         
                         if (held)
                         {
+                            anim.SetBool("Holding", true);
                             GetComponent<AudioSource>().PlayOneShot(pickupSFX);
                             held.SetActive(false);
                         }

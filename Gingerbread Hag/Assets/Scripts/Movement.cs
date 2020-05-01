@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour
     private Rigidbody rig;
     private ParticleSystem.EmissionModule emis;
     private ParticleSystem.MainModule main;
+    private Animator anim;
     
     
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class Movement : MonoBehaviour
         ParticleSystem particles = GetComponent<ParticleSystem>();
         emis = particles.emission;
         main = particles.main;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -40,14 +42,17 @@ public class Movement : MonoBehaviour
 
         if (inputDir.magnitude > .1)
         {
+            anim.SetBool("Walking", true);
             float angle = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, angle, 0);
         }
+        else anim.SetBool("Walking", false);
         
         
         Vector3 movement = new Vector3(inputDir.x, rig.velocity.y, inputDir.y) * speed;
         if (Input.GetKeyDown(SprintKey))
         {
+            anim.SetBool("WitchMode", true);
             if (!GetComponent<AudioSource>().isPlaying)
             {
                 GetComponent<AudioSource>().PlayOneShot(cackle);
@@ -61,6 +66,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            anim.SetBool("WitchMode", false);
             emis.rateOverDistance = 5;
             main.startColor = Color.white;
         }
