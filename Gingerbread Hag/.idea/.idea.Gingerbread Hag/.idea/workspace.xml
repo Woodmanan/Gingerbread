@@ -24,6 +24,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChildControl.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MoveToStart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueTrigger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DialogueManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hunter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingredient.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Cooking.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObjectEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -53,15 +57,19 @@
         <option value="$PROJECT_DIR$/Assets/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/Candy.cs" />
         <option value="$PROJECT_DIR$/Assets/GameMananger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CuttingBoard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameMananger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChildControl.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" />
+        <option value="$PROJECT_DIR$/Assets/MoveToStart.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CuttingBoard.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DialogueManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hunter.cs" />
       </list>
     </option>
   </component>
@@ -137,6 +145,11 @@
       <workItem from="1588279647719" duration="208000" />
       <workItem from="1588280268804" duration="2030000" />
       <workItem from="1588284354019" duration="2869000" />
+      <workItem from="1588291253887" duration="290000" />
+      <workItem from="1588292685451" duration="1240000" />
+      <workItem from="1588298935779" duration="908000" />
+      <workItem from="1588302572252" duration="765000" />
+      <workItem from="1588304018188" duration="322000" />
     </task>
     <servers />
   </component>

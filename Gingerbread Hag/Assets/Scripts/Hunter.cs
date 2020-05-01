@@ -16,13 +16,15 @@ public class Hunter : MonoBehaviour
     public int distanceFromGoal = 3;
     private int currentGoal = 0;
 
+    public AudioClip heySFX;
+
     private int witchRange = 20;
     private bool attackWitch = false;
 
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
-        _navMeshAgent.speed = 6;
+        _navMeshAgent.speed = 5;
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -72,14 +74,21 @@ public class Hunter : MonoBehaviour
             }
         }
 
-
-        if (player.GetComponent<ObjectPickup>().GetHeld() != null)
+        GameObject held = player.GetComponent<ObjectPickup>().GetHeld();
+        if (held)
         {
+            if (held.GetComponent<ChildBeta>())
+            {
+                attackWitch = true;
+            }
             if (Vector3.Distance(transform.position, player.transform.position) < 10)
             {
+                if (!GetComponent<AudioSource>().isPlaying)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(heySFX);
+                }
 
-
-                Debug.Log("I SHOULD BRUTULIZE THE WITCH" + " " + player.GetComponent<ObjectPickup>().GetHeld().tag);
+               
                 attackWitch = true;
             }
             

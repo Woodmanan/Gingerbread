@@ -227,7 +227,13 @@ public class ObjectPickup : MonoBehaviour
         {
             Destroy(candy);
         }
-        
+
+        NavMeshAgent agent = holdDisplay.GetComponent<NavMeshAgent>();
+        if (agent)
+        {
+            Destroy(agent);
+        }
+
         holdDisplay.transform.parent = transform;
         holdDisplay.transform.localPosition = HoldingOffset;
 
@@ -239,8 +245,29 @@ public class ObjectPickup : MonoBehaviour
 
         print("Location: " + transform.position);
         GetComponent<AudioSource>().PlayOneShot(placeSFX);
-        
-        
+                    
+        ChildBeta child = held.GetComponent<ChildBeta>();
+        if (child)
+        {
+            //Holding a child! See if it needs to become free roaming
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(inFront, out hit, dropDist, NavMesh.AllAreas))
+            {
+                //Drop the child!
+                print("Child is getting dropped into Navmesh!");
+                held.transform.position = inFront;
+                held.SetActive(true);
+                held.GetComponent<NavMeshAgent>().enabled = true;
+                held.GetComponent<BoxCollider>().enabled = true;
+                child.enabled = true;
+                child.StopGrab();
+                held = null;
+                print("Child has finished being dropped!");
+                Destroy(holdDisplay);
+                return;
+            }
+        }
+                    
         //Attempt drop
         if (ObjectPlacement.instance.Drop(held, inFront))
         {
