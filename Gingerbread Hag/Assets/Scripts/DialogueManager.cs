@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text dialogueText;
+    public TMP_Text dialogueText;
     private Queue<string> sentences;
 
     void Start()
