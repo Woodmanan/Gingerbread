@@ -22,7 +22,7 @@ public class Hunter : MonoBehaviour
     void Start()
     {
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
-        _navMeshAgent.speed = 6;
+        _navMeshAgent.speed = 5;
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -79,7 +79,7 @@ public class Hunter : MonoBehaviour
             {
 
 
-                Debug.Log("I SHOULD BRUTULIZE THE WITCH" + " " + player.GetComponent<ObjectPickup>().GetHeld().tag);
+               
                 attackWitch = true;
             }
             
