@@ -13,6 +13,7 @@ TagManager:
   - ChildController
   - Sugar
   - Flour
+  - ChildPoint
   layers:
   - Default
   - TransparentFX

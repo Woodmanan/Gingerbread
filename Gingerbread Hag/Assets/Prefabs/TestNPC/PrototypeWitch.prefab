@@ -437,7 +437,7 @@ MonoBehaviour:
   pickupSFX: {fileID: 8300000, guid: df5270222287744a089d18e1153f28a4, type: 3}
   placeSFX: {fileID: 8300000, guid: 1204fa0ddfdc347d891d88cbbfab320b, type: 3}
   holdingChild: 0
-  dropDist: 0
+  dropDist: 1.4
 --- !u!82 &-4567839438708325298
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5431,8 +5431,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7415e8ad97837864d81226fcbbd40c3d, type: 2}
-  - {fileID: 2100000, guid: 8848d68dccc29d1468db5d09ae1ef0cc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6120,7 +6120,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c466bc3b010e4346832fa9bb7306dc2, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

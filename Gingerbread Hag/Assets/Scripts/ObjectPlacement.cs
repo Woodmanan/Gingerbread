@@ -179,6 +179,10 @@ public class ObjectPlacement : MonoBehaviour
     
     private void Place(GameObject obj, Vector3 position)
     {
+        if (obj.GetComponent<Candy>())
+        {
+            obj.GetComponent<Candy>().visited = false;
+        }
         Vector3 location = gridPosition(position);
         objects.Add(location, obj);
         PickupOverride over;

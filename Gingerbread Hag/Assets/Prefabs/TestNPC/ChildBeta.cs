@@ -10,6 +10,7 @@ public class ChildBeta : MonoBehaviour
     Transform currentGoal;
     private int randNum;
     GameObject[] randomLocations;
+    private GameObject[] points;
     NavMeshAgent _navMeshAgent;
 
     private bool gettingCandy = false;
@@ -38,6 +39,7 @@ public class ChildBeta : MonoBehaviour
         _navMeshAgent = this.GetComponent<NavMeshAgent>();
 
         randomLocations = GameObject.FindGameObjectsWithTag("RandomLocation");
+        points = GameObject.FindGameObjectsWithTag("ChildPoint");
         toRandomDirection();
 
         StartCoroutine(SearchForTargets(SearchingDelay));
@@ -75,7 +77,8 @@ public class ChildBeta : MonoBehaviour
         {
             yield return new WaitForSeconds(delay);
             randomLocations = GameObject.FindGameObjectsWithTag("RandomLocation");
-            if (randomLocations.Length == 0)
+            points = GameObject.FindGameObjectsWithTag("ChildPoint");
+            if (randomLocations.Length == 0 && points.Length == 0)
             {
                 //Stop moving if our target disappears!
                 currentGoal = transform;
@@ -114,7 +117,7 @@ public class ChildBeta : MonoBehaviour
 
 
             }
-            else if (currentGoal == null || !currentGoal.CompareTag("RandomLocation"))
+            else if (currentGoal == null || !(currentGoal.CompareTag("RandomLocation") || currentGoal.CompareTag("ChildPoint")))
             {
                 toRandomDirection();
 
@@ -147,6 +150,16 @@ public class ChildBeta : MonoBehaviour
 
     private void toRandomDirection()
     {
+        if (points.Length != 0)
+        {
+            if (Random.value > .7)
+            {
+                //Set a point
+                currentGoal = points[Random.Range(0, points.Length)].transform;
+                return;
+            }
+        }
+
         if (randomLocations.Length == 0)
         {
             currentGoal = transform;

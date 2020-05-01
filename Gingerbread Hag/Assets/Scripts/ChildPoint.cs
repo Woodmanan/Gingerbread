@@ -29,7 +29,7 @@ public class ChildPoint : MonoBehaviour
 
     public void BeginAttract(GameObject obj)
     {
-        gameObject.tag = "RandomLocation";
+        gameObject.tag = "ChildPoint";
         waiting = true;
         held = obj;
     }

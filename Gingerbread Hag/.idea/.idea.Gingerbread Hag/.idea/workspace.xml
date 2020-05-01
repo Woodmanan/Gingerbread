@@ -60,16 +60,17 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupOverride.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameMananger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ChildControl.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Cooking.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Movement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" />
         <option value="$PROJECT_DIR$/Assets/MoveToStart.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CuttingBoard.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueTrigger.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DialogueManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hunter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ChildPoint.cs" />
+        <option value="$PROJECT_DIR$/Assets/Prefabs/TestNPC/ChildBeta.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ObjectPlacement.cs" />
       </list>
     </option>
   </component>
@@ -150,6 +151,7 @@
       <workItem from="1588298935779" duration="908000" />
       <workItem from="1588302572252" duration="765000" />
       <workItem from="1588304018188" duration="322000" />
+      <workItem from="1588304488820" duration="752000" />
     </task>
     <servers />
   </component>
