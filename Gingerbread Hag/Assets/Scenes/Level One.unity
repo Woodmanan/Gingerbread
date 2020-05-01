@@ -3035,11 +3035,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrototypeWitch
       objectReference: {fileID: 0}
-    - target: {fileID: 5610438573375382218, guid: 462c077bfa032504f901071f355fa294,
-        type: 3}
-      propertyPath: dropDist
-      value: 1.13
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 462c077bfa032504f901071f355fa294, type: 3}
 --- !u!4 &595303025 stripped
@@ -6129,7 +6124,7 @@ PrefabInstance:
     - target: {fileID: 2731699913109485132, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3487151067552779524, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
@@ -6275,7 +6270,7 @@ PrefabInstance:
     - target: {fileID: 6698779978572278183, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7234336582474123717, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}

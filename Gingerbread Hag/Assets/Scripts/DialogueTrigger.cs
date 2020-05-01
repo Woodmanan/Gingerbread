@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,12 @@ public class DialogueTrigger : MonoBehaviour
     public TMP_Text text;
 
     int c = 0;
+
+    private void Start()
+    {
+        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+        dialogueManager.StartDialogue(dialogue);
+    }
 
     private void Update()
     {
@@ -27,11 +34,7 @@ public class DialogueTrigger : MonoBehaviour
 
             }
 
-            else if (c == 0)
-            {
-                dialogueManager.StartDialogue(dialogue);
-                c++;
-            }
+            
 
 
             else
