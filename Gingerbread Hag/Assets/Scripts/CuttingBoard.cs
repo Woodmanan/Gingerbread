@@ -41,12 +41,12 @@ public class CuttingBoard : MonoBehaviour
             if (timeLeft < 0)
             {
                 GameObject next = ingredient.FinishCooking(Cooking.cooktype.Chopping);
+                Destroy(held);
                 //Move it to the next one!
                 ObjectPlacement.instance.Replace(transform.position, next);
                 readyToChop = false;
                 chopping = false;
-                Destroy(held);
-                GetObject(next);
+                //GetObject(next);
             }
         }
         else
