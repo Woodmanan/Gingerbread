@@ -16,6 +16,8 @@ public class Hunter : MonoBehaviour
     public int distanceFromGoal = 3;
     private int currentGoal = 0;
 
+    public AudioClip heySFX;
+
     private int witchRange = 20;
     private bool attackWitch = false;
 
@@ -77,7 +79,10 @@ public class Hunter : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, player.transform.position) < 10)
             {
-
+                if (!GetComponent<AudioSource>().isPlaying)
+                {
+                    GetComponent<AudioSource>().PlayOneShot(heySFX);
+                }
 
                 Debug.Log("I SHOULD BRUTULIZE THE WITCH" + " " + player.GetComponent<ObjectPickup>().GetHeld().tag);
                 attackWitch = true;
