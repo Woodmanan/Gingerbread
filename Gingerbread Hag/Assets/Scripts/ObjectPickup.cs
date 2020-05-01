@@ -219,7 +219,13 @@ public class ObjectPickup : MonoBehaviour
         {
             Destroy(candy);
         }
-        
+
+        NavMeshAgent agent = holdDisplay.GetComponent<NavMeshAgent>();
+        if (agent)
+        {
+            Destroy(agent);
+        }
+
         holdDisplay.transform.parent = transform;
         holdDisplay.transform.localPosition = HoldingOffset;
 

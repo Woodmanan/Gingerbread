@@ -6656,6 +6656,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 878866114753176005, guid: a044d30a6bddefa48907525f222ff0cf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1262127385096839112, guid: a044d30a6bddefa48907525f222ff0cf,
         type: 3}
       propertyPath: m_textInfo.characterCount

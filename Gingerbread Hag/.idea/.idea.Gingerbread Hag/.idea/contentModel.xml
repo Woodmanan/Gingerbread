@@ -19,6 +19,9 @@
           <e p="Cooking.cs" t="Include" />
           <e p="CuttingBoard.cs" t="Include" />
           <e p="DestroyChildren.cs" t="Include" />
+          <e p="Dialogue.cs" t="Include" />
+          <e p="DialogueManager.cs" t="Include" />
+          <e p="DialogueTrigger.cs" t="Include" />
           <e p="FollowPlayer.cs" t="Include" />
           <e p="GameMananger.cs" t="Include" />
           <e p="HGFood.cs" t="Include" />
