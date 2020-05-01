@@ -2,56 +2,44 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
-    public GameObject[] nexts;
-    public GameObject[] others;
 
-    public Text text;
+    public TMP_Text text;
 
     int c = 0;
 
-    void OnMouseDown()
+    private void Update()
     {
-        DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
-        Debug.Log(c);
-        if (c == dialogue.sentences.Length)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            dialogueManager.DisplayNextSentence();
-            gameObject.SetActive(false);
-            foreach (GameObject next in nexts)
+
+            DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+            Debug.Log(c);
+            if (c == dialogue.sentences.Length)
             {
-                if (next != null)
-                {
-                    next.SetActive(true);
-                }
+                dialogueManager.DisplayNextSentence();
+                gameObject.SetActive(false);
+
 
             }
 
-            foreach (GameObject other in others)
+            else if (c == 0)
             {
-                if (other != null)
-                {
-                    other.SetActive(false);
-                }
-
+                dialogueManager.StartDialogue(dialogue);
+                c++;
             }
-        }
-
-        else if (c == 0)
-        {
-            dialogueManager.StartDialogue(dialogue);
-            c++;
-        }
 
 
-        else
-        {
-            dialogueManager.DisplayNextSentence();
-            c++;
+            else
+            {
+                dialogueManager.DisplayNextSentence();
+                c++;
+            }
         }
     }
-
 }
+    
