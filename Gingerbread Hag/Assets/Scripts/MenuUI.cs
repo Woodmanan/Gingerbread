@@ -15,4 +15,8 @@ public class MenuUI : MonoBehaviour
         Debug.Log("exit game");
         Application.Quit();
     }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
