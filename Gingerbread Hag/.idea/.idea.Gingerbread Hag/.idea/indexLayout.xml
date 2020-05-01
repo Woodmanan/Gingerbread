@@ -20,6 +20,7 @@
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Playtest 4-21</Path>
+      <Path>Temp</Path>
       <Path>WebGLBuild</Path>
       <Path>WegGLBUild</Path>
       <Path>obj</Path>
